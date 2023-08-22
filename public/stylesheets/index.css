@@ -1,0 +1,27 @@
+body {
+    background-color: hsl(0, 0%, 95%);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto 10rem auto;
+    padding: 3rem;
+}
+
+.header__logo__text {
+    color: #594545;
+    font-weight: 700;
+}
+
+
+
+.header__navigation__list {
+    display: flex;
+}
+
+.header__navigation__list__item {
+    margin-left: 50px;
+}
