@@ -24,4 +24,5 @@ body {
 
 .header__navigation__list__item {
     margin-left: 50px;
+    list-style: none;
 }

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  row-gap: 20rem;
+  row-gap: 10rem;
   margin: 0 auto;
   max-width: 120rem;
 }
@@ -19,7 +19,7 @@
 
 .posts__postCard__description {
   color: hsl(0, 0%, 30%);
-  margin-bottom: 3.2rem;
+  margin-bottom: 2.2rem;
 }
 
 .posts__postCard___footer {
@@ -34,8 +34,14 @@
 }
 
 .posts__postCard___footer__author__image {
-  width: 5rem;
-  height: 5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 1rem;
+}
+
+.posts__postCard__description_srcPost { 
+  display: flex; 
+  align-items: center;
+  color: #040404;
 }
 

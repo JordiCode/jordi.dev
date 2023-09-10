@@ -6,6 +6,8 @@ app.listen(PORT, () => {
     console.log('Servidor ejecutandose en el puerto: ' + PORT)
 })
 
+console.log(app.locals.basedir)
+
 
 browserSync.init({
     proxy: 'http://localhost:3000', 
