@@ -5,30 +5,25 @@ const pool = require('../database')
 
 
 router.get('/:post', async (req, res, next) => {
-    const post = req.params.post
+    const urlPost = req.params.post
+    const { rows } = await pool.query('SELECT * FROM posts WHERE src = $1', [urlPost])
+    const post = rows[0]
 
-    const { rows } = await pool.query('SELECT * FROM posts WHERE src = "?"', [post])
-    console.log(rows)
-    
-    /*
-    if (!data) {
-
-      fs.access(`views/posts/${post}`, (err) => {
-        if (err) {n
+    if (post) {
+      fs.access(`posts/${post['src']}`, (err) =>{
+        if (err === null) {
           next()
+        } else {
+          res.render(`posts/${post['src']}`, {
+            title: `${post['title']}`
+          })
         }
       })
 
-      res.render(`posts/${post}`, {
-        title: 'JordiG - Blog - JavaScript - Productividad'
-      })
     } else {
-        console.log('error')
-        return 
+      next()
     }
-    */
-
- 
+  
 })
 
 
