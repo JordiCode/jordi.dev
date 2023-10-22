@@ -15,7 +15,10 @@ router.get('/:post', async (req, res, next) => {
           next()
         } else {
           res.render(`posts/${post['src']}`, {
-            title: `${post['title']}`
+            title: post['title'],
+            author: post['author'],
+            author_description: post['author_description'],
+            created_at: post['created_at'] 
           })
         }
       })

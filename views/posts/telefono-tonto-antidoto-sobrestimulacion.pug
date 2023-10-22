@@ -10,7 +10,7 @@ body
 
     article(class='post') 
         img(src='https://carlosfelice.com.ar/blog/wp-content/uploads/movil.jpg' class='posts__postCard__srcPost__image' class='post__image')
-        h1(class='post__title') Telefono tonto, el antidoto de la sobrestimulación
+        h1(class='post__title')= title
 
         div(class='post__content')
             p(class='post__content__text') Un telefono tonto es aquel el cúal presenta caracteristicas muy limitadas en comparación con los smartphone de la actualidad. 
@@ -26,6 +26,6 @@ body
             div(class='post__footer__author')
                 img(class='post__footer__author__image' src="https://w7.pngwing.com/pngs/406/902/png-transparent-flat-design-person-character-man-avatar-smiley-face-minimalist-dude.png", alt="JordiG")
                 div(class='post__footer__author_description') 
-                    p JordiG
-                    span Developer Web 
-            span(class='post__footer__date') Fecha de publicación: 23 de agosto 2023
+                    p= author
+                    span= author_description
+            span(class='post__footer__date') Fecha de publicación: #{created_at}

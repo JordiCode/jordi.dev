@@ -24,6 +24,16 @@ app.use(express.static(publicURL))
 app.use(favicon(faviconURL))
 
 
+//Delete '/' end.
+app.use((req, res, next) => {
+     if (req.path.endsWith('/') && req.path !== '/') {
+       const newPath = req.path.slice(0, -1);
+       return res.redirect(301, newPath);
+     }
+     next()
+})
+
+   
 app.use('/', index)
 app.use('/blog', blog)
 app.use('/blog/', post)
