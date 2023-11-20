@@ -6,19 +6,17 @@ const pool = require('../database')
 
 router.get('/:post', async (req, res, next) => {
     const urlPost = req.params.post
-    const { rows } = await pool.query('SELECT * FROM posts WHERE src = $1', [urlPost])
+    const { rows } = await pool.query('SELECT * FROM posts WHERE src_post = $1', [urlPost])
     const post = rows[0]
 
     if (post) {
-      fs.access(`posts/${post['src']}`, (err) =>{
+      fs.access(`posts/${post['src_post']}`, (err) =>{
         if (err === null) {
           next()
         } else {
-          res.render(`posts/${post['src']}`, {
-            title: post['title'],
-            author: post['author'],
-            author_description: post['author_description'],
-            created_at: post['created_at'] 
+          res.render(`posts/${post['src_post']}`, 
+          {
+            title: post['title']
           })
         }
       })

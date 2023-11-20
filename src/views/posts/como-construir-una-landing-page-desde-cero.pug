@@ -1,0 +1,28 @@
+doctype html 
+html(lang="es")
+    head 
+        include ../partials/head
+
+body(class='bg-dominant font-medium')
+    include ../partials/header
+
+    article(class='mx-auto max-w-4xl px-[2.5%] flex flex-col gap-5') 
+        img(src='https://resources.diariolibre.com/images/2022/04/19/shutterstock588747977-72a39911-focus-0-0-895-573.jpg' class='w-full')
+        h1(class='text-3xl font-bold mb-5 text-secundary')
+        div(class='text-paragraph')
+            p(class='mb-5') Un telefono tonto es aquel el cúal presenta caracteristicas muy limitadas en comparación con los smartphone de la actualidad. 
+            p(class='mb-5') Hoy día son muchas las personas que pasan la mayor parte de sus dias absortos en el telefono movíl, es una realidad que se ha producido en poco tiempo sin nisiquiera gran parte de las personas lo hayamos notado aún. 
+            p(class='mb-5') Es por ello que ha surgido un grupo de personas los cuales han sentido como estas nuevas tecnologías han afectado su vida en general, por lo que han decído dejar atrás las maquinas pequeñas que llevamos todo el día con nosotros.  
+            p(class='mb-5 text-xl font-semibold text-secundary') ¿De que manera un telefono tonto entonces le beneficía a este grupo de personas?   
+            ol(class='list-decimal pl-10')
+                li(class='mb-5') Mediante el uso de estos dispositivos con caracteristicas muy limitadas estan personas no reciben notificaciones todo el día que perjudican su concentración.
+                li(class='mb-5') Pueden seguir en contacto con las personas que deseén. 
+                li(class='mb-5') Pueden concentrarse en el mundo que tienen ante sus ojos. 
+        div(class='flex items-center justify-between mt-5') 
+            div(class='flex gap-5 items-center')
+                img(src="https://w7.pngwing.com/pngs/406/902/png-transparent-flat-design-person-character-man-avatar-smiley-face-minimalist-dude.png", alt="JordiG" class='w-16 rounded-full')
+                div(class='flex flex-col') 
+                    p.text-secundary= 'JordiG'
+                    span.text-paragraph= 'Developer web'
+            span(class='text-[hsl(0,0%,80%)]') Fecha de publicación: 
+    include /partials/footer
