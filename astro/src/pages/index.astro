@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Posts } from '../components/Posts'
+
+---
+
+<Layout title="JordiG - ¡Bienvenid@s a mi blog!">
+	<main class="py-5">
+		<Posts client:load />
+	</main>
+</Layout>
+
