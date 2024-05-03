@@ -9,8 +9,8 @@ html {
     color: white;
 }
 
-input {
+input, textarea {
     outline: none;
     background-color: transparent;
+    resize: none;
 }
-
