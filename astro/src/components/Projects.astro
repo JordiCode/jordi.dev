@@ -1,11 +1,53 @@
 ---
-import Code from "./icons/Code.astro"
+import GitHub from "./icons/GitHub.astro"
+import ArrowRightCircle from "./icons/ArrowRightCircle.astro"
+import Target from "./icons/Target.astro"
+
+const projects = [
+    {
+        srcImg: 'project-fjp.jpg',
+        title: 'Premezclados de hormigon FJP',
+        description: `Construction company Landing Page. Through the site, their 
+        clients were able to learn about their services and get in touch with the company`
+    }
+]
 ---
-<div class="max-w-3xl mx-auto pt-24">
-    <h1 class="text-xl flex gap-2 items-center">
+<div class="pt-24">
+    <h1 class="text-xl flex gap-2 items-center mb-10">
         <span>
-            <Code />
+            <Target />
         </span>
         Projects
     </h1>
+    {
+        projects.map(({srcImg, title, description}) => (
+            <div class="flex gap-5">
+                <img src={srcImg} alt={'Image not found'} class="rounded-lg max-w-sm"/>
+                <div class="pt-5">
+                    <h3 class="text-lg mb-1">{title}</h3>
+                    <p class="text-zinc-400 mb-4">{description}</p>
+                    <div class="flex gap-3">
+                        <a 
+                            href="https://github.com/pheralb/svgl" 
+                            role="link" 
+                            class="inline-flex items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700 focus-visible:ring-yellow-500/80 text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                        > 
+                            <GitHub className="size-4" />
+                            Code
+                        </a>
+
+                        <a 
+                            href="https://github.com/pheralb/svgl" 
+                            role="link" 
+                            class="inline-flex items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700 focus-visible:ring-yellow-500/80 text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                        > 
+                            <ArrowRightCircle className="size-4" />
+                            Preview
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        ))
+    }
 </div>
