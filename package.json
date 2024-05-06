@@ -1,30 +1,21 @@
 {
-  "name": "jordig-dev",
+  "name": "astro",
+  "type": "module",
   "version": "0.0.1",
-  "description": "Blog of tecnology",
-  "main": "src/server.js",
   "scripts": {
-    "start": "nodemon src/server.js",
-    "dev": "concurrently \"npm run build:tailwind-css\"  \"npm start\" \"browser-sync start --config bs-config.js\"",
-    "build:tailwind-css": "tailwindcss -i ./src/style.css -o ./public/stylesheets/purge.css --watch"
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "keywords": [
-    "nodejs",
-    "Blog"
-  ],
-  "author": "JordiG",
-  "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "morgan": "^1.10.0",
-    "pg": "^8.11.3",
-    "pug": "^3.0.2",
-    "serve-favicon": "^2.5.0",
-    "tailwindcss": "^3.3.5"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.29.3",
-    "concurrently": "^8.2.2",
-    "nodemon": "^3.0.1"
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/preact": "^3.2.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^4.7.0",
+    "preact": "^10.21.0",
+    "tailwindcss": "^3.4.3",
+    "typescript": "^5.4.5"
   }
 }
