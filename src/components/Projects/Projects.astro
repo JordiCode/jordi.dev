@@ -1,0 +1,14 @@
+---
+//import GitHub from "/icons/GitHub.astro";
+import Target from "../icons/Target.astro";
+//import CheronDown from "/icons/CheronDown.astro";
+import Content from "./Content";
+---
+
+<div class="pt-24">
+  <h1 class="text-xl flex gap-2 items-center mb-10">
+    <span>{(<Target />)}</span>
+    Projects
+  </h1>
+  <Content client:load />
+</div>

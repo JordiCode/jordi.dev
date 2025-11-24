@@ -1,18 +1,18 @@
 ---
 import Twitter from "./icons/Twitter.astro";
-import GitHub from "./icons/GitHub.astro"
-import Linkedin from "./icons/Linkedin.astro"
-const classNameIcon = `hover:text-white size-5`
+import GithubIcon from "./icons/GithubIcon";
+import Linkedin from "./icons/Linkedin.astro";
+const classNameIcon = `hover:text-white size-5`;
 ---
 
-<div class:list={['flex gap-5']}>
-    <a href="#">
-        <Twitter className={classNameIcon}/>
-    </a>
-    <a href="#">
-        <Linkedin className={classNameIcon}/>
-    </a>
-    <a href="#">
-        <GitHub className={classNameIcon}/>
-    </a>
+<div class:list={["flex gap-5"]}>
+  <a href="#">
+    <Twitter className={classNameIcon} />
+  </a>
+  <a href="#">
+    <Linkedin className={classNameIcon} />
+  </a>
+  <a href="#">
+    <GithubIcon classes={classNameIcon} />
+  </a>
 </div>
