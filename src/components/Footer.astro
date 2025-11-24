@@ -1,9 +1,11 @@
 ---
 import SocialMedia from '../components/SocialMedia.astro'
+const year = new Date().getFullYear()
 ---
 <footer class="flex justify-between text-zinc-400 pb-8 pt-24">
     <small>
-        2024 © JordiG. 🇩🇴
+        { year } JordiG. 🇩🇴 {}
     </small>
     <SocialMedia/>
 </footer>
+
