@@ -78,7 +78,7 @@ const Content = () => {
                     href={linkCode}
                     target={"_blank"}
                     role="link"
-                    class={`${linkCode == undefined ? "hidden" : "inline-flex"}  items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700  text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black`}
+                    class={`${linkCode == undefined ? "hidden" : "inline-flex"} items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-black hover:text-white dark:text-white dark:hover:text-black  transition bg-white hover:bg-zinc-900 dark:bg-zinc-900 dark:hover:bg-zinc-100 border border-zinc-700 text-md  hover:border-gray-900 group max-w-fit rounded-md focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black`}
                   >
                     <GithubIcon />
                     Code
@@ -88,7 +88,7 @@ const Content = () => {
                     href={linkPreview}
                     target={"_blank"}
                     role="link"
-                    class="inline-flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700 text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                    class={`${linkPreview == undefined ? "hidden" : "inline-flex"} items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-black hover:text-white dark:text-white dark:hover:text-black  transition bg-white hover:bg-zinc-900 dark:bg-zinc-900 dark:hover:bg-zinc-100 border border-zinc-700 text-md  hover:border-gray-900 group max-w-fit rounded-md focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black`}
                   >
                     <EyeIcon />
                     Preview
