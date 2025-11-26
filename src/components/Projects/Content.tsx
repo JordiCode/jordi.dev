@@ -49,8 +49,9 @@ const Content = () => {
               <img
                 src={srcImg}
                 alt={"Image not found"}
-                class="rounded-lg max-w-sm max-md:max-w-full"
+                class="rounded-lg max-w-sm max-md:max-w-full border border-zinc-600"
               />
+
               <div class="pt-5">
                 <div class={"flex flex-col items-start gap-2 mb-5"}>
                   <h3 class="text-xl">{title}</h3>
