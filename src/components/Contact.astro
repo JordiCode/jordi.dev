@@ -119,8 +119,8 @@ const classes =
         warning.style.display = "block";
         warning.style.color = "#36b460";
         warning.textContent = "The message has been sent correctly";
-
         clearWarning();
+        this.reset();
       } else {
         loader.style.display = "none";
         warning.style.display = "block";
@@ -128,8 +128,6 @@ const classes =
         warning.textContent = "There was an error sending the message";
         clearWarning();
       }
-
-      this.reset();
     }, 5000);
   });
 </script>
