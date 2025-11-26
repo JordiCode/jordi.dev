@@ -1,11 +1,11 @@
 ---
-import SocialMedia from '../components/SocialMedia.astro'
-const year = new Date().getFullYear()
+import SocialMedia from "../components/SocialMedia.astro";
+const year = new Date().getFullYear();
 ---
-<footer class="flex justify-between text-zinc-400 pb-8 pt-24">
-    <small>
-        { year } JordiG. 🇩🇴 {}
-    </small>
-    <SocialMedia/>
-</footer>
 
+<footer class="flex justify-between text-zinc-400 pb-8 pt-24">
+  <small class="text-sm">
+    {year} - JordiG 🇩🇴
+  </small>
+  <SocialMedia />
+</footer>

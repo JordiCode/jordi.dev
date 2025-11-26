@@ -1,4 +1,4 @@
-const GithubIcon = ({ classes }: { classes: string }) => {
+const GithubIcon = ({ classes = "size-4" }: { classes?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -2,17 +2,20 @@
 import Twitter from "./icons/Twitter.astro";
 import GithubIcon from "./icons/GithubIcon";
 import Linkedin from "./icons/Linkedin.astro";
-const classNameIcon = `hover:text-white size-5`;
+const classNameIcon = `text-zinc-600 hover:text-black dark:text-zinc-400 dark:hover:text-white size-5`;
 ---
 
 <div class:list={["flex gap-5"]}>
-  <a href="#">
+  <!-- <a href="#">
     <Twitter className={classNameIcon} />
-  </a>
-  <a href="#">
-    <Linkedin className={classNameIcon} />
-  </a>
-  <a href="#">
+  </a> -->
+  <a href="https://github.com/JordiCode" target="_blank">
     <GithubIcon classes={classNameIcon} />
+  </a>
+  <a
+    href="https://linkedin.com/in/yordi-gabriel-vargas-acosta-b347a0268"
+    target="_blank"
+  >
+    <Linkedin className={classNameIcon} />
   </a>
 </div>

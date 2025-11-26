@@ -1,15 +1,29 @@
 ---
-import User from "./icons/User.astro"
+import User from "./icons/User.astro";
 ---
 
-<div class="pt-24 text-zinc-400">
-    <h2 class="text-white text-xl mb-1 flex gap-2 items-center">
-        <span>
-            <User />
-        </span>
-        About Me
-    </h2>
-    <p class="text-xs">I started getting interested in programming back in high school when I was 13 years old. Currently, I work as a freelancer, constantly improving my skills every day.</p>
-    <br>
-    <p class="text-xs">I enjoy tackling complex problems, teaching, and learning from others. One of my most notable projects is <span class="text-yellow-100">Free Time Block</span> (a productivity app), and a collaboration on <span class="text-blue-300">Gadmin</span> (an enterprise system). Both experiences have contributed significantly to my journey.</p>
+<div class="pt-24">
+  <div class="flex gap-2 items-center mb-6">
+    <span class="relative">
+      <User />
+    </span>
+    <h2 class="text-black dark:text-white text-2xl">About Me</h2>
+  </div>
+
+  <div class="text-zinc-600 dark:text-zinc-400">
+    <p class="text-sm">
+      I started getting interested in programming back in high school when I was
+      13 years old. Currently, I work as a freelancer, constantly improving my
+      skills every day.
+    </p>
+    <br />
+    <p class="text-sm">
+      I enjoy tackling complex problems, teaching, and learning from others. One
+      of my most notable projects is <span class="text-black dark:text-white"
+        >Archit</span
+      >
+      (productivity app), and <span class="text-blue-500">ComLang</span> (learning
+      languages app). Both experiences have contributed significantly to my journey.
+    </p>
+  </div>
 </div>

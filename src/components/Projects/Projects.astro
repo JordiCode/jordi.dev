@@ -6,9 +6,11 @@ import Content from "./Content";
 ---
 
 <div class="pt-24">
-  <h1 class="text-xl flex gap-2 items-center mb-10">
-    <span>{(<Target />)}</span>
-    Projects
-  </h1>
+  <div class="flex gap-2 items-center mb-6">
+    <span class="relative">
+      <Target />
+    </span>
+    <h2 class="text-black dark:text-white text-2xl">Projects</h2>
+  </div>
   <Content client:load />
 </div>

@@ -2,66 +2,104 @@ import { useState } from "preact/hooks";
 import EyeIcon from "../icons/EyeIcon";
 import GithubIcon from "../icons/GithubIcon";
 import CheronDownIcon from "../icons/CheronDownIcon";
+import data from "../../data/projectsData";
+
+type projectType = {
+  status: string;
+  srcImg: string;
+  title: string;
+  description: string;
+  linkPreview: string | undefined;
+  linkCode: string | undefined;
+  tools: any;
+};
 
 const Content = () => {
-  const data = [
-    {
-      linkPreview: "https://www.premezcladosdehormigonfjp.com",
-      linkCode: undefined,
-      srcImg: "project-fjp.jpg",
-      title: "Premezclados de hormigon FJP",
-      description: `Construction company Landing Page. Through the site, their 
-        clients were able to learn about their services and get in touch with the company`,
-    },
-  ];
-
-  let [max, setMax] = useState<number>(1);
+  let [max, setMax] = useState<number>(2);
 
   const showMoreItems = (e: any) => {
-    if (max == data.length) return;
+    if (max + 2 >= data.length) {
+      setMax(data.length);
+      return;
+    }
+
     setMax(max + 2);
   };
 
+  const statusColor: any = {
+    production: "bg-green-700",
+    building: "bg-yellow-700",
+  };
+
   return (
-    <>
+    <div>
       {data
         .slice(0, max)
-        .map(({ srcImg, title, description, linkPreview, linkCode }) => (
-          <div className={"flex gap-5 mb-5"}>
-            <img
-              src={srcImg}
-              alt={"Image not found"}
-              class="rounded-lg max-w-sm"
-            />
-            <div class="pt-5">
-              <h3 class="text-lg mb-1">{title}</h3>
-              <p class="text-zinc-400 mb-4">{description}</p>
-              <div class="flex gap-3">
-                <a
-                  href={linkCode}
-                  target={"_blank"}
-                  role="link"
-                  class={`${linkCode == undefined ? "hidden" : "inline-flex"}  items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700  text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black`}
-                >
-                  <GithubIcon classes="size-5" />
-                  Code
-                </a>
+        .map(
+          ({
+            status,
+            srcImg,
+            title,
+            description,
+            linkPreview,
+            linkCode,
+            tools,
+          }: projectType) => (
+            <div className={"flex max-md:grid gap-5 mb-10"}>
+              <img
+                src={srcImg}
+                alt={"Image not found"}
+                class="rounded-lg max-w-sm max-md:max-w-full"
+              />
+              <div class="pt-5">
+                <div class={"flex flex-col items-start gap-2 mb-5"}>
+                  <h3 class="text-xl">{title}</h3>
+                  <span
+                    class={`text-[0.6rem] ${statusColor[status]} text-white py-1 px-4 rounded-md capitalize`}
+                    title={"Status"}
+                  >
+                    {status}
+                  </span>
+                </div>
+                <p class="text-xs text-zinc-600 dark:text-zinc-300 mb-4">
+                  {description}
+                </p>
+                <div class={"mb-3"}>
+                  <h3 className={"mb-1 text-base"}>Tools: </h3>
+                  <div class={"inline-flex gap-2 mb-4"}>
+                    {tools.map((Icon: any) => (
+                      <Icon />
+                    ))}
+                  </div>
+                </div>
 
-                <a
-                  href={linkPreview}
-                  target={"_blank"}
-                  role="link"
-                  class="inline-flex items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700 text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
-                >
-                  <EyeIcon classes="size-5" />
-                  Preview
-                </a>
+                <div class="flex gap-3">
+                  <a
+                    href={linkCode}
+                    target={"_blank"}
+                    role="link"
+                    class={`${linkCode == undefined ? "hidden" : "inline-flex"}  items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700  text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black`}
+                  >
+                    <GithubIcon />
+                    Code
+                  </a>
+
+                  <a
+                    href={linkPreview}
+                    target={"_blank"}
+                    role="link"
+                    class="inline-flex items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-white transition bg-zinc-900 border border-zinc-700 text-md hover:bg-zinc-100 hover:border-gray-900 group max-w-fit rounded-md hover:text-black focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+                  >
+                    <EyeIcon />
+                    Preview
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        )}
       <button
-        className={`flex gap-1 items-center text-sm text-blue-200 hover:text-blue-50 ${max == data.length ? "hidden" : ""}`}
+        className={`flex gap-1 items-center ${max >= data.length ? "hidden" : ""} text-sm text-zinc-700 hover:text-zinc-900  dark:text-zinc-300 dark:hover:text-zinc-50 `}
         onClick={showMoreItems}
       >
         View more
@@ -69,7 +107,7 @@ const Content = () => {
           <CheronDownIcon classes="size-5" />
         </span>
       </button>
-    </>
+    </div>
   );
 };
 

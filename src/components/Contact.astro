@@ -1,36 +1,41 @@
 ---
-import Phone from "./icons/Phone.astro"
-
-const classes = 'col-span-1 row-span-1 max-sm:col-span-2'
+const classes =
+  "!border-zinc-500 focus:!border-black dark:focus:!border-white col-span-1 row-span-1 max-sm:col-span-2";
 ---
 
 <div class="pt-24">
-    <h1 class="text-xl">        
-        Contact Me
-    </h1>
-    <p class="text-xs text-zinc-500 mb-5">For new projects or collaborations, I'm open to them.</p>
-    <form action="#" class="grid grid-cols-2 grid-rows-5 max-sm:grid-rows-7 gap-4 text-xs">
-        <input type="text" class={classes} placeholder="First Name">
-        <input type="text" class={classes} placeholder="Last Name">
-        <input type="text" class={classes} placeholder="Email">
-        <input type="text" class={classes} placeholder="Subject">
-        <textarea name="" id="" class="col-span-2 row-span-2" placeholder="Message"></textarea>
-        <input value="Send" type="submit" class="w-3/4 col-span-1 row-span-1 max-sm:col-span-2 max-sm:w-auto !border-white cursor-pointer hover:bg-white hover:text-black ">
-    </form>
+  <h2 class="text-black dark:text-white text-2xl mb-1">Contact Me</h2>
+  <p class="text-sm text-zinc-500 mb-5">
+    For new projects or collaborations, I'm open to them.
+  </p>
+  <form
+    action="#"
+    class="grid grid-cols-2 grid-rows-5 max-sm:grid-rows-7 gap-4 text-xs"
+  >
+    <input type="text" class={classes} placeholder="First Name" />
+    <input type="text" class={classes} placeholder="Last Name" />
+    <input type="text" class={classes} placeholder="Email" />
+    <input type="text" class={classes} placeholder="Subject" />
+    <textarea
+      name=""
+      id=""
+      class="!border-zinc-500 focus:!border-black col-span-2 row-span-2 dark:focus:!border-white"
+      placeholder="Message"></textarea>
+    <input
+      value="Send"
+      type="submit"
+      class="!border-zinc-500 hover:!border-black w-3/4 col-span-1 row-span-1 max-sm:col-span-2 max-sm:w-auto cursor-pointer dark:hover:!border-white"
+    />
+  </form>
 </div>
 
 <style>
-    input, textarea{
-        border: 1px;
-        border-color: hsl(0, 0%, 20%);
-        border-style: solid;
-        padding: 1rem .5rem;
-        border-radius: .375rem;
-        transition: border-color .2s linear;
-    }
-
-    input:focus, textarea:focus {
-        border-color: white;
-    }
+  input,
+  textarea {
+    border: 1px;
+    border-style: solid;
+    padding: 1rem 0.5rem;
+    border-radius: 0.375rem;
+    transition: border-color 0.2s linear;
+  }
 </style>
-

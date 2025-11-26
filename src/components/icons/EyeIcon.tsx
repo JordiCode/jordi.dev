@@ -1,4 +1,4 @@
-const EyeIcon = ({ classes }: { classes: string }) => {
+const EyeIcon = ({ classes = "size-4" }: { classes?: string }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

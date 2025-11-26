@@ -1,25 +1,52 @@
 ---
+import SunIcon from "./icons/SunIcon";
+
 const navLinks = [
-    {
-        url: '/',
-        text: 'Portfolio'
-    },
-    {
-        url: '/blog',
-        text: 'Blog'
-    },
-]
+  {
+    url: "/",
+    text: "Portfolio",
+  },
+  {
+    url: "/blog",
+    text: "Blog",
+  },
+];
 ---
-<header class='py-5'>   
-    <nav class="w-max py-1">
-        <ul class='flex gap-5'>
-            {
-                navLinks.map(({url, text}) => (
-                    <li class="text-sm text-zinc-300 hover:text-zinc-200 transition-colors">
-                        <a href={url}>{text}</a>
-                    </li>
-                ))
-            }
-        </ul>
-    </nav>
+
+<header class="py-5 flex justify-between">
+  <nav class="w-max py-1">
+    <ul class="flex gap-5">
+      {
+        navLinks.map(({ url, text }) => (
+          <li class="text-sm text-zinc-600 hover:text-zinc-900  dark:text-zinc-400 dark:hover:text-zinc-50 transition-colors">
+            <a href={url}>{text}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="cursor-pointer" id="dark-light-icon">
+    <SunIcon />
+  </div>
 </header>
+
+<script>
+  const html = document.getElementsByTagName("html")[0];
+  const darkModeStatus = localStorage.getItem("darkModeStatus");
+  const darkLightIcon = document.getElementById("dark-light-icon");
+
+  if (darkModeStatus == null) {
+    localStorage.setItem("darkModeStatus", "dark");
+  } else if (darkModeStatus == "light") {
+    html.classList.remove("dark");
+  }
+  //else - by the default is dark
+
+  darkLightIcon?.addEventListener("click", () => {
+    darkModeStatus == "dark"
+      ? localStorage.setItem("darkModeStatus", "light")
+      : localStorage.setItem("darkModeStatus", "dark");
+
+    html.classList.toggle("dark");
+  });
+</script>
