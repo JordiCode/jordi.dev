@@ -5,12 +5,8 @@ import Target from "../icons/Target.astro";
 import Content from "./Content";
 ---
 
-<div class="pt-24">
-  <div class="flex gap-2 items-center mb-6">
-    <span class="relative">
-      <Target />
-    </span>
-    <h2 class="text-black dark:text-white text-2xl">Projects</h2>
-  </div>
-  <Content client:load />
+<div class="flex gap-2 items-center mb-6">
+  <Target />
+  <h2 class="text-black dark:text-white text-2xl">Projects</h2>
 </div>
+<Content client:load />

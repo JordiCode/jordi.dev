@@ -1,0 +1,127 @@
+---
+import StackIcon from "./icons/StackIcon";
+import ReactIcon from "./icons/ReactIcon";
+import FigmaIcon from "./icons/FigmaIcon";
+import NodeJsIcon from "./icons/NodeJsIcon";
+import Astro2Icon from "./icons/AstroIcon";
+import GitIcon from "./icons/GitIcon";
+import TailWindCssIcon from "./icons/TailWindCssIcon";
+import BunIcon from "./icons/BunIcon";
+import NpmIcon from "./icons/NpmIcon";
+import AWSIcon from "./icons/AWSIcon";
+import PostgreSqlIcon from "./icons/PostgreSqlIcon";
+import VercelIcon from "./icons/VercelIcon";
+import TypeScriptIcon from "./icons/TypeScriptIcon";
+import ReactNativeIcon from "./icons/ReactNativeIcon";
+import HtmlIcon from "./icons/HtmlIcon";
+import JavaScriptIcon from "./icons/JavaScriptIcon";
+import CssIcon from "./icons/CssIcon";
+
+const technologies = [
+  {
+    Icon: ReactIcon,
+    text: "ReactJS",
+    size: "size-12",
+  },
+  {
+    Icon: FigmaIcon,
+    text: "Figma",
+    size: "size-12",
+  },
+  {
+    Icon: NodeJsIcon,
+    text: "NodeJS",
+    size: "size-12",
+  },
+  {
+    Icon: Astro2Icon,
+    text: "Astro",
+    size: "size-8",
+  },
+  {
+    Icon: GitIcon,
+    text: "Git",
+    size: "size-10",
+  },
+  {
+    Icon: TailWindCssIcon,
+    text: "TailwindCSS",
+    size: "size-12",
+  },
+  {
+    Icon: BunIcon,
+    text: "Bun",
+    size: "size-12",
+  },
+  {
+    Icon: NpmIcon,
+    text: "Npm",
+    size: "size-12",
+  },
+  {
+    Icon: AWSIcon,
+    text: "AWS",
+    size: "size-12",
+  },
+  {
+    Icon: PostgreSqlIcon,
+    text: "PostgreSQL",
+    size: "size-12",
+  },
+  {
+    Icon: VercelIcon,
+    text: "Vercel",
+    size: "size-12",
+  },
+  {
+    Icon: TypeScriptIcon,
+    text: "TypeScript",
+    size: "size-12",
+  },
+  {
+    Icon: ReactNativeIcon,
+    text: "React Native",
+    size: "size-12",
+  },
+  {
+    Icon: HtmlIcon,
+    text: "Html5",
+    size: "size-12",
+  },
+  {
+    Icon: JavaScriptIcon,
+    text: "JavaScript",
+    size: "size-12",
+  },
+  {
+    Icon: CssIcon,
+    text: "CSS3",
+    size: "size-12",
+  },
+];
+---
+
+<div class="mb-24">
+  <div class="flex gap-2 items-center mb-6">
+    <StackIcon />
+    <span class="relative"> </span>
+    <h2 class="text-black dark:text-white text-2xl">Stack</h2>
+  </div>
+  <div class="flex flex-wrap gap-12 mb-24">
+    {
+      technologies.map(({ Icon, text, size }) => {
+        return (
+          <div
+            class="h-24 flex flex-col justify-between items-center"
+            title={text}
+          >
+            <Icon classes={size} />
+            <span class="text-black dark:text-white py-1 px-2 rounded-full border-2">
+              <p>{text}</p>
+            </span>
+          </div>
+        );
+      })
+    }
+  </div>
+</div>
