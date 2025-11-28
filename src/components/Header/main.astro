@@ -1,5 +1,5 @@
 ---
-import SunIcon from "./icons/SunIcon";
+import SunMoon from "./SunMoon";
 
 const navLinks = [
   {
@@ -25,28 +25,28 @@ const navLinks = [
       }
     </ul>
   </nav>
-  <div class="cursor-pointer" id="dark-light-icon">
-    <SunIcon />
-  </div>
+  <SunMoon client:load />
 </header>
 
-<script>
+<!-- <script>
   const html = document.getElementsByTagName("html")[0];
-  const darkModeStatus = localStorage.getItem("darkModeStatus");
+  let darkModeStatus = localStorage.getItem("darkModeStatus");
   const darkLightIcon = document.getElementById("dark-light-icon");
 
   if (darkModeStatus == null) {
-    localStorage.setItem("darkModeStatus", "dark");
-  } else if (darkModeStatus == "light") {
-    html.classList.remove("dark");
+    localStorage.setItem("darkModeStatus", "light");
+  } else if (darkModeStatus == "dark") {
+    html.classList.add("dark");
   }
-  //else - by the default is dark
+  //else - by the default is light
 
   darkLightIcon?.addEventListener("click", () => {
+    darkModeStatus = localStorage.getItem("darkModeStatus");
+
     darkModeStatus == "dark"
       ? localStorage.setItem("darkModeStatus", "light")
       : localStorage.setItem("darkModeStatus", "dark");
 
     html.classList.toggle("dark");
   });
-</script>
+</script> -->
