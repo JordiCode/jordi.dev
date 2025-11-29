@@ -1,7 +1,17 @@
 
 
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Signika", "Poppins", sans-serif;
+  font-weight: 700;
+}
+
 input, textarea {
     outline: none;
     background-color: transparent;
     resize: none;
 }
+

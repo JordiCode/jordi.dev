@@ -1,15 +1,11 @@
 ---
-import Target from "../icons/Target.astro";
 import Project from "./Project.astro";
 import data from "../../data/projectsData";
+import SectionTitle from "../ui/SectionTitle.astro";
 ---
 
-<div>
-  <div class="flex gap-2 items-center">
-    <Target />
-    <h2 class="text-black dark:text-white text-2xl">Projects</h2>
-  </div>
-
+<SectionTitle title="Projects" iconName="target" />
+<div class="grid gap-10">
   {data.map((props) => <Project {...props} />)}
 </div>
 

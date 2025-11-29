@@ -33,7 +33,7 @@ const { status, srcImg, title, description, linkPreview, linkCode, tools } =
   Astro.props;
 ---
 
-<div class="project mt-16">
+<div class="project">
   <span class="loadingMsg flex gap-4 mt-24">
     <LoadingIcon />
     <p class="text-sm font-light">loading</p>
@@ -48,7 +48,7 @@ const { status, srcImg, title, description, linkPreview, linkCode, tools } =
 
     <div class="pt-5">
       <div class={"flex flex-col items-start gap-2 mb-5"}>
-        <h3 class="text-xl">{title}</h3>
+        <h2 class="text-2xl">{title}</h2>
         <span
           class={`text-[0.6rem] ${statusColor[status]} text-white py-1 px-4 rounded-md capitalize`}
           title={"Status"}

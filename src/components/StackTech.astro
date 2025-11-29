@@ -1,5 +1,4 @@
 ---
-import StackIcon from "./icons/StackIcon";
 import ReactIcon from "./icons/ReactIcon";
 import FigmaIcon from "./icons/FigmaIcon";
 import NodeJsIcon from "./icons/NodeJsIcon";
@@ -16,6 +15,7 @@ import ReactNativeIcon from "./icons/ReactNativeIcon";
 import HtmlIcon from "./icons/HtmlIcon";
 import JavaScriptIcon from "./icons/JavaScriptIcon";
 import CssIcon from "./icons/CssIcon";
+import SectionTitle from "./ui/SectionTitle.astro";
 
 const technologies = [
   {
@@ -102,11 +102,7 @@ const technologies = [
 ---
 
 <div class="mb-24">
-  <div class="flex gap-2 items-center mb-6">
-    <StackIcon />
-    <span class="relative"> </span>
-    <h2 class="text-black dark:text-white text-2xl">Stack</h2>
-  </div>
+  <SectionTitle title="Stack" iconName="stack" />
   <div
     class="flex flex-wrap gap-12 mb-24 border rounded-lg py-8 px-8 max-h-78 max-lg:overflow-y-scroll"
   >
