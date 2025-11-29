@@ -1,0 +1,97 @@
+---
+import EyeIcon from "../icons/EyeIcon";
+import GithubIcon from "../icons/GithubIcon";
+import AstroIcon from "../icons/AstroIcon";
+import FigmaIcon from "../icons/FigmaIcon";
+import JavaScriptIcon from "../icons/JavaScriptIcon";
+import TailWindCssIcon from "../icons/TailWindCssIcon";
+import LoadingIcon from "../icons/LoadingIcon";
+
+interface Props {
+  status: string;
+  srcImg: string;
+  title: string;
+  description: string;
+  linkPreview: string | undefined;
+  linkCode: string | undefined;
+  tools: string[];
+}
+
+const iconMap: any = {
+  astro: AstroIcon,
+  tailwindcss: TailWindCssIcon,
+  javascript: JavaScriptIcon,
+  figma: FigmaIcon,
+};
+
+const statusColor: any = {
+  production: "bg-green-700",
+  building: "bg-yellow-700",
+};
+
+const { status, srcImg, title, description, linkPreview, linkCode, tools } =
+  Astro.props;
+---
+
+<div class="project mt-16">
+  <span class="loadingMsg flex gap-4 mt-24">
+    <LoadingIcon />
+    <p class="text-sm font-light">loading</p>
+  </span>
+  <div class={"flex max-lg:grid gap-5 invisible "}>
+    <img
+      alt={"Image not found"}
+      data-src={srcImg}
+      class="projectImg border-zinc-600 max-w-sm
+    max-lg:max-w-full border rounded-lg"
+    />
+
+    <div class="pt-5">
+      <div class={"flex flex-col items-start gap-2 mb-5"}>
+        <h3 class="text-xl">{title}</h3>
+        <span
+          class={`text-[0.6rem] ${statusColor[status]} text-white py-1 px-4 rounded-md capitalize`}
+          title={"Status"}
+        >
+          {status}
+        </span>
+      </div>
+      <p class="text-xs text-zinc-600 dark:text-zinc-300 mb-4">
+        {description}
+      </p>
+      <div class={"mb-3"}>
+        <h3 class={"mb-1 text-base"}>Tools:</h3>
+        <div class={"inline-flex gap-2 mb-4"}>
+          {
+            tools.map((name: any, index) => {
+              const Icon = iconMap[name];
+              return <Icon key={index} />;
+            })
+          }
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <a
+          href={linkCode}
+          target={"_blank"}
+          role="link"
+          class={`${linkCode == undefined ? "hidden" : "inline-flex"} items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-black hover:text-white dark:text-white dark:hover:text-black  transition bg-white hover:bg-zinc-900 dark:bg-zinc-900 dark:hover:bg-zinc-100 border border-zinc-700 text-md  hover:border-gray-900 group max-w-fit rounded-md focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black`}
+        >
+          <GithubIcon />
+          Code
+        </a>
+
+        <a
+          href={linkPreview}
+          target={"_blank"}
+          role="link"
+          class={`${linkPreview == undefined ? "hidden" : "inline-flex"} items-center justify-center gap-2 px-3 py-2 space-x-2 text-xs text-black hover:text-white dark:text-white dark:hover:text-black  transition bg-white hover:bg-zinc-900 dark:bg-zinc-900 dark:hover:bg-zinc-100 border border-zinc-700 text-md  hover:border-gray-900 group max-w-fit rounded-md focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black`}
+        >
+          <EyeIcon />
+          Preview
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

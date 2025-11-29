@@ -1,9 +1,24 @@
 ---
+import ArrowLeftIcon from "./icons/ArrowLeftIcon";
+
 const classes =
   "!border-zinc-500 focus:!border-black dark:focus:!border-white col-span-1 row-span-1 max-sm:col-span-2";
 ---
 
-<div class="pt-24">
+<div
+  class="group border my-8 cursor-pointer w-max px-5 py-2 rounded-lg hover:scale-105 transition-all"
+>
+  <a href="/">
+    <span class="flex gap-3 items-center">
+      <ArrowLeftIcon
+        classes="size-6 transition-transform group-hover:-translate-x-1"
+      />
+      <p class="dark:text-white text-black text-sm">Volver atras</p>
+    </span>
+  </a>
+</div>
+
+<div class="bg-zinc-950 p-10 rounded-lg">
   <h2 class="text-black dark:text-white text-2xl mb-1">Contact Me</h2>
   <p class="text-sm text-zinc-500 mb-5">
     For new projects or collaborations, I'm open to them.

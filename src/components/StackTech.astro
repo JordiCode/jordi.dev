@@ -107,16 +107,21 @@ const technologies = [
     <span class="relative"> </span>
     <h2 class="text-black dark:text-white text-2xl">Stack</h2>
   </div>
-  <div class="flex flex-wrap gap-12 mb-24">
+  <div
+    class="flex flex-wrap gap-12 mb-24 border rounded-lg py-8 px-8 max-h-78 max-lg:overflow-y-scroll"
+  >
     {
       technologies.map(({ Icon, text, size }) => {
         return (
           <div
-            class="h-24 flex flex-col justify-between items-center"
+            class="group h-24 flex flex-col justify-between items-center"
             title={text}
           >
             <Icon classes={size} />
-            <span class="text-black dark:text-white py-1 px-2 rounded-full border-2">
+            <span
+              class={`text-black group-hover:text-white group-hover:bg-zinc-900 dark:text-white 
+                dark:group-hover:text-black  dark:group-hover:bg-white py-1 px-2 rounded-full border-2`}
+            >
               <p>{text}</p>
             </span>
           </div>

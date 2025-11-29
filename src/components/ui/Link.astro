@@ -1,0 +1,17 @@
+---
+interface Props {
+  href: string;
+  className?: string;
+}
+
+const { href, className } = Astro.props;
+
+const isSamePage = Astro.url.pathname == href;
+---
+
+<a
+  href={href}
+  class={`${className} ${isSamePage ? "pointer-events-none" : ""}`}
+>
+  <slot />
+</a>

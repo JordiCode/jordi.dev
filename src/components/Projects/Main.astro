@@ -1,0 +1,49 @@
+---
+import Target from "../icons/Target.astro";
+import Project from "./Project.astro";
+import data from "../../data/projectsData";
+---
+
+<div>
+  <div class="flex gap-2 items-center">
+    <Target />
+    <h2 class="text-black dark:text-white text-2xl">Projects</h2>
+  </div>
+
+  {data.map((props) => <Project {...props} />)}
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const loadingMsg = entry.target.firstElementChild;
+        const projectContent = entry.target.lastElementChild;
+
+        const projectImg = entry.target.querySelector(
+          ".projectImg"
+        ) as HTMLImageElement;
+
+        if (!projectImg.dataset.src) return;
+
+        projectImg.src = projectImg.dataset.src;
+
+        //When the projectImg image finishes loading, remove the loading message and display the projectContent.
+        projectImg.addEventListener("load", () => {
+          if (projectContent && loadingMsg) {
+            loadingMsg.classList.add("hidden");
+            projectContent.classList.remove("invisible", "h-10");
+          }
+        });
+
+        observer.unobserve(projectImg);
+      }
+    });
+  });
+
+  const projects = document.querySelectorAll(".project");
+
+  projects.forEach((project) => {
+    observer.observe(project);
+  });
+</script>
