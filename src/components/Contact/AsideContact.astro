@@ -1,0 +1,36 @@
+---
+import GithubIcon from "../icons/GithubIcon";
+import LinkedinIcon from "../icons/LinkedinIcon";
+
+const socials = [
+  {
+    Icon: GithubIcon,
+    href: "https://github.com/JordiCode",
+    text: "JordiCode",
+  },
+  {
+    Icon: LinkedinIcon,
+    href: "https://linkedin.com/in/yordi-gabriel-vargas-acosta-b347a0268",
+    text: "Yordi Gabriel Vargas Acosta",
+  },
+];
+---
+
+<div
+  class="max-lg:w-max max-lg:p-0 w-[30%] grid pl-10 text-white gap-8 rounded-lg h-max"
+>
+  {
+    socials.map(({ Icon, href, text }) => {
+      return (
+        <a
+          href={href}
+          class="flex gap-3 text-black dark:text-white"
+          target="_blank"
+        >
+          <Icon classes="size-8" />
+          <p>{text}</p>
+        </a>
+      );
+    })
+  }
+</div>

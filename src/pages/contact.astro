@@ -1,8 +1,14 @@
 ---
-import ContactMe from "../components/ContactMe.astro";
+import Main from "../components/Contact/Main.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="JordiG - Contact Me">
-  <ContactMe />
+  <Main />
 </Layout>
+
+<script
+  is:inline
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer></script>

@@ -1,67 +1,55 @@
 ---
-import LinkComeBack from "./ui/LinkComeBack.astro";
-
 const classes =
   "!border-zinc-500 focus:!border-black dark:focus:!border-white col-span-1 row-span-1 max-sm:col-span-2";
 ---
 
-<LinkComeBack />
-
-<div>
-  <div class="rounded-lg mt-12">
-    <h2 class="text-black dark:text-white text-2xl mb-1">Contact Me</h2>
-    <p class="text-sm text-zinc-500 mb-5">
-      For new projects or collaborations, I'm open to them.
-    </p>
-    <form
-      action="#"
-      class="grid grid-cols-2 grid-rows-5 max-sm:grid-rows-7 gap-4 text-xs mb-4"
-      id="form"
-    >
-      <input
-        type="text"
-        name="firstName"
-        class={classes}
-        placeholder="First Name*"
-        required
-      />
-      <input
-        type="text"
-        name="lastName"
-        class={classes}
-        placeholder="Last Name*"
-        required
-      />
-      <input
-        type="email"
-        name="email"
-        class={classes}
-        placeholder="Email*"
-        required
-      />
-      <input
-        type="text"
-        name="subject"
-        class={classes}
-        placeholder="Subject*"
-        required
-      />
-      <textarea
-        name="message"
-        class="!border-zinc-500 focus:!border-black col-span-2 row-span-2 dark:focus:!border-white"
-        placeholder="Message*"
-        required></textarea>
-      <div class="cf-turnstile" data-sitekey="0x4AAAAAACDH8R9gLV4uLnb0"></div>
-      <input
-        value="Send"
-        type="submit"
-        class="!border-zinc-500 hover:!border-black col-span-2 row-span-2 cursor-pointer dark:hover:!border-white"
-      />
-    </form>
-    <div class="hidden" id="loader"></div>
-    <div class="hidden" id="warning"></div>
-  </div>
-</div>
+<form
+  action="#"
+  class="grid grid-cols-2 grid-rows-5 max-sm:grid-rows-7 gap-4 text-xs mb-4 w-full"
+  id="form"
+>
+  <input
+    type="text"
+    name="firstName"
+    class={classes}
+    placeholder="First Name*"
+    required
+  />
+  <input
+    type="text"
+    name="lastName"
+    class={classes}
+    placeholder="Last Name*"
+    required
+  />
+  <input
+    type="email"
+    name="email"
+    class={classes}
+    placeholder="Email*"
+    required
+  />
+  <input
+    type="text"
+    name="subject"
+    class={classes}
+    placeholder="Subject*"
+    required
+  />
+  <textarea
+    name="message"
+    class="!border-zinc-500! focus:border-black! col-span-2 row-span-2 dark:focus:border-white!"
+    placeholder="Message*"
+    required></textarea>
+  <div class="cf-turnstile" data-sitekey="0x4AAAAAACDH8R9gLV4uLnb0"></div>
+  <input
+    value="Send"
+    type="submit"
+    class="border-zinc-500! hover:border-black! col-span-2 row-span-2 cursor-pointer dark:hover:border-white!"
+  />
+</form>
+<div class="hidden" id="loader"></div>
+<div class="hidden" id="warning"></div>
 
 <style>
   input,

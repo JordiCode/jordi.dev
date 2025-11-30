@@ -1,0 +1,44 @@
+---
+import SunIcon from "../icons/SunIcon";
+import MoonIcon from "../icons/MoonIcon";
+---
+
+<div class="dark-light-icon cursor-pointer">
+  <SunIcon classes="hover:stroke-yellow-300 size-6 hidden" />
+  <MoonIcon
+    classes="group size-7 hidden"
+    pathClasses="group-hover:fill-blue-400"
+  />
+</div>
+
+<script is:inline>
+  const darkLightIcon = document.getElementsByClassName("dark-light-icon")[0];
+  const sunIcon = darkLightIcon?.firstElementChild;
+  const moonIcon = darkLightIcon?.lastElementChild;
+
+  const initialTheme = localStorage.getItem("theme") || "light";
+
+  if (initialTheme === "dark") {
+    sunIcon.classList.remove("hidden");
+  } else {
+    moonIcon.classList.remove("hidden");
+  }
+
+  const toggleTheme = () => {
+    const currentTheme = localStorage.getItem("theme");
+    const newTheme = currentTheme == "dark" ? "light" : "dark";
+
+    localStorage.setItem("theme", newTheme);
+
+    if (newTheme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    sunIcon.classList.toggle("hidden");
+    moonIcon.classList.toggle("hidden");
+  };
+
+  darkLightIcon?.addEventListener("click", toggleTheme);
+</script>
