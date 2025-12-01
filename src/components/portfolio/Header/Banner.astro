@@ -1,0 +1,28 @@
+---
+import LoadingBar from "../ui/LoadingBar.astro";
+
+interface Props {
+  classes?: string;
+}
+const { classes } = Astro.props;
+---
+
+<div class={classes}>
+  <LoadingBar classes="loadingBar absolute inset-x-0 inset-y-0 m-auto" />
+
+  <img
+    src="/banner.jpg"
+    alt="Banner"
+    class="opacity-0 relative w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+  />
+</div>
+
+<script is:inline>
+  const loadingBar = document.getElementsByClassName("loadingBar")[0];
+  const image = document.getElementsByTagName("img")[0];
+
+  image.addEventListener("load", () => {
+    loadingBar.classList.add("hidden");
+    image.classList.remove("opacity-0");
+  });
+</script>

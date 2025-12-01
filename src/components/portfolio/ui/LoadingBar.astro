@@ -1,0 +1,38 @@
+---
+interface Props {
+  classes?: string;
+}
+
+const { classes } = Astro.props;
+---
+
+<div class=`${classes} loader-container`>
+  <div class="loader-bar"></div>
+</div>
+
+<style>
+  .loader-container {
+    width: 150px;
+    height: 8px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .loader-bar {
+    height: 100%;
+    width: 30%;
+    background: #00a6f4;
+    border-radius: 10px;
+    animation: loading 2s infinite linear;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(333%);
+    }
+  }
+</style>
