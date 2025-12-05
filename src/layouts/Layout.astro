@@ -73,10 +73,12 @@ const { title } = Astro.props;
 
       if (bannerElement.isIntersecting) {
         header.classList.remove("-translate-y-20");
-        ToTopButton.classList.add("hidden");
+        ToTopButton.classList.add("invisible");
+        ToTopButton.classList.remove("-translate-y-28");
       } else {
         header.classList.add("-translate-y-20");
-        ToTopButton.classList.remove("hidden");
+        ToTopButton.classList.remove("invisible");
+        ToTopButton.classList.add("-translate-y-28");
       }
     },
     { rootMargin: "-170px 0px 0px 0px" }
