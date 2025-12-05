@@ -1,4 +1,5 @@
 ---
+import BlogIcon from "../icons/BlogIcon.astro";
 import HouseIcon from "../icons/HouseIcon.astro";
 
 interface Props {
@@ -12,6 +13,7 @@ const { currentPath, iconName, href, className } = Astro.props;
 
 const icons = {
   house: HouseIcon,
+  blog: BlogIcon,
 };
 
 const SelectedIcon = iconName ? icons[iconName as keyof typeof icons] : null;

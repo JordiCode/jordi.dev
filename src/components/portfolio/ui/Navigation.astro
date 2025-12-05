@@ -1,0 +1,40 @@
+---
+import normalizePath from "../../../scripts/portfolio/normalizePath";
+import Link from "./Link.astro";
+
+const currentPath = normalizePath(Astro.url.pathname);
+
+const navLinks = [
+  {
+    iconName: "house",
+    currentPath: currentPath,
+    url: "/",
+    text: "Portfolio",
+  },
+  {
+    iconName: "blog",
+    currentPath: currentPath,
+    url: "/blog",
+    text: "Blog",
+  },
+];
+---
+
+<nav class="w-max py-1">
+  <ul class="flex">
+    {
+      navLinks.map(({ iconName, url, text, currentPath }) => {
+        const isTabActive = currentPath == url;
+        return (
+          <li
+            class={`  ${isTabActive ? "text-blue-400 dark:text-blue-400 bg-white " : "dark:text-zinc-300 text-zinc-700 hover:text-blue-500 dark:hover:text-blue-400 "}   py-2 px-4 rounded-lg transition-colors font-bold tracking-wider`}
+          >
+            <Link href={url} currentPath={currentPath} iconName={iconName}>
+              {text}
+            </Link>
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

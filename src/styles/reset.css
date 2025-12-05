@@ -1,3 +1,4 @@
+@reference "tailwindcss";
 
 
 body {
@@ -13,4 +14,3 @@ input, textarea {
     background-color: transparent;
     resize: none;
 }
-
