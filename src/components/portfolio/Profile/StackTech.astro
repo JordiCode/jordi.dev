@@ -1,0 +1,122 @@
+---
+import ReactIcon from "../icons/Stack/ReactIcon.astro";
+import FigmaIcon from "../icons/Stack/FigmaIcon.astro";
+import NodeJsIcon from "../icons/Stack/NodeJsIcon.astro";
+import Astro2Icon from "../icons/Stack/AstroIcon.astro";
+import GitIcon from "../icons/Stack/GitIcon.astro";
+import TailWindCssIcon from "../icons/Stack/TailWindCssIcon.astro";
+import BunIcon from "../icons/Stack/BunIcon.astro";
+import NpmIcon from "../icons/Stack/NpmIcon.astro";
+import AWSIcon from "../icons/Stack/AWSIcon.astro";
+import PostgreSqlIcon from "../icons/Stack/PostgreSqlIcon.astro";
+import VercelIcon from "../icons/Stack/VercelIcon.astro";
+import TypeScriptIcon from "../icons/Stack/TypeScriptIcon.astro";
+import ReactNativeIcon from "../icons/Stack/ReactNativeIcon.astro";
+import HtmlIcon from "../icons/Stack/HtmlIcon.astro";
+import JavaScriptIcon from "../icons/Stack/JavaScriptIcon.astro";
+import CssIcon from "../icons/Stack/CssIcon.astro";
+import SectionTitle from "../ui/SectionTitle.astro";
+import Card from "../ui/Card.astro";
+
+const technologies = [
+  {
+    Icon: ReactIcon,
+    text: "ReactJS",
+    size: "size-5",
+  },
+  {
+    Icon: FigmaIcon,
+    text: "Figma",
+    size: "size-5",
+  },
+  {
+    Icon: NodeJsIcon,
+    text: "NodeJS",
+    size: "size-5",
+  },
+  {
+    Icon: Astro2Icon,
+    text: "Astro",
+    size: "size-4",
+  },
+  {
+    Icon: GitIcon,
+    text: "Git",
+    size: "size-4",
+  },
+  {
+    Icon: TailWindCssIcon,
+    text: "TailwindCSS",
+    size: "size-4",
+  },
+  {
+    Icon: BunIcon,
+    text: "Bun",
+    size: "size-4",
+  },
+  {
+    Icon: NpmIcon,
+    text: "Npm",
+    size: "size-4",
+  },
+  {
+    Icon: AWSIcon,
+    text: "AWS",
+    size: "size-4",
+  },
+  {
+    Icon: PostgreSqlIcon,
+    text: "PostgreSQL",
+    size: "size-4",
+  },
+  {
+    Icon: VercelIcon,
+    text: "Vercel",
+    size: "size-4",
+  },
+  {
+    Icon: TypeScriptIcon,
+    text: "TypeScript",
+    size: "size-4",
+  },
+  {
+    Icon: ReactNativeIcon,
+    text: "React Native",
+    size: "size-4",
+  },
+  {
+    Icon: HtmlIcon,
+    text: "Html5",
+    size: "size-4",
+  },
+  {
+    Icon: JavaScriptIcon,
+    text: "JavaScript",
+    size: "size-4",
+  },
+  {
+    Icon: CssIcon,
+    text: "CSS3",
+    size: "size-4",
+  },
+];
+---
+
+<Card classes="">
+  <SectionTitle title="Stack" iconName="stack" />
+  <div class="flex flex-wrap gap-3">
+    {
+      technologies.map(({ Icon, text, size }) => {
+        return (
+          <div
+            class="group text-xs flex gap-1 items-center bg-blue-400/50 hover:bg-blue-200 dark:hover:bg-blue-400 rounded-xl px-2 py-1"
+            title={text}
+          >
+            <Icon classes={size} />
+            <p>{text}</p>
+          </div>
+        );
+      })
+    }
+  </div>
+</Card>

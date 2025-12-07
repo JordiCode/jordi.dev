@@ -1,11 +1,10 @@
 ---
 import SocialMedia from "./SocialMedia.astro";
+import Card from "./ui/Card.astro";
 import LoadingBar from "./ui/LoadingBar.astro";
 ---
 
-<div
-  class="pf-card-wrapper w-full max-w-[320px] max-md:mx-auto bg-blue-50 dark:bg-blue-950 rounded-xl relative -top-20 p-3 pb-4"
->
+<Card classes="pf-card-wrapper h-max w-full">
   <div
     class="relative h-72 max-md:h-64 overflow-hidden rounded-xl bg-slate-300 dark:bg-slate-950"
   >
@@ -30,7 +29,7 @@ import LoadingBar from "./ui/LoadingBar.astro";
     </p>
     <SocialMedia classes="flex gap-2 mx-auto w-max mt-3" />
   </div>
-</div>
+</Card>
 
 <script is:inline>
   const pfCardWrapper = document.getElementsByClassName("pf-card-wrapper")[0];
