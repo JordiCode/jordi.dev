@@ -31,35 +31,39 @@ const experiences = [
 ];
 ---
 
-<Card classes="">
-  <SectionTitle title="Work Experience" iconName="work" />
-  <div class="grid gap-3">
-    {
-      experiences.map(({ title, company, startDate, endDate, description }) => {
-        return (
-          <div class="we-wrapper p-3 rounded-xl bg-blue-200 dark:bg-blue-950">
-            <p class="text-xs text-slate-800">
-              {startDate} - {endDate}
-            </p>
-            <h3 class="text-lg font-bold text-slate-800">{company}</h3>
-            <p class="dark:text-slate-300 text-blue-400 mb-2 text-xs">
-              {title}
-            </p>
-            <div class=" rounded-lg h-max">
-              <p class="we-description bg-white rounded-lg hidden text-xs leading-5 p-3">
-                {description}
-              </p>
-              <span class="we-button p-3 hover:bg-blue-100 flex w-full font-medium  gap-2 items-center justify-start cursor-pointer rounded-lg">
-                <DotsIcon classes="size-4 min-w-4" />
-                <p>Details</p>
-              </span>
-            </div>
-          </div>
-        );
-      })
-    }
-  </div>
-</Card>
+<div class="sticky top-3 pt-3">
+  <Card>
+    <SectionTitle title="Work Experience" iconName="work" />
+    <div class="grid gap-3">
+      {
+        experiences.map(
+          ({ title, company, startDate, endDate, description }) => {
+            return (
+              <div class="we-wrapper p-3 rounded-xl bg-blue-200 dark:bg-blue-950">
+                <p class="text-xs text-slate-800">
+                  {startDate} - {endDate}
+                </p>
+                <h3 class="text-lg font-bold text-slate-800">{company}</h3>
+                <p class="dark:text-slate-300 text-blue-400 mb-2 text-xs">
+                  {title}
+                </p>
+                <div class=" rounded-lg h-max">
+                  <p class="we-description bg-white rounded-lg hidden text-xs leading-5 p-3">
+                    {description}
+                  </p>
+                  <span class="we-button p-3 hover:bg-blue-100 flex w-full font-medium  gap-2 items-center justify-start cursor-pointer rounded-lg">
+                    <DotsIcon classes="size-4 min-w-4" />
+                    <p>Details</p>
+                  </span>
+                </div>
+              </div>
+            );
+          }
+        )
+      }
+    </div>
+  </Card>
+</div>
 
 <script is:inline>
   const we = document.querySelectorAll(".we-wrapper");

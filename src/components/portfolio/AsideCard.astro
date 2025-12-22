@@ -1,13 +1,10 @@
 ---
 import Card from "./ui/Card.astro";
+import ProjectMain from "./Projects/Main.astro";
 
 const TEST = import.meta.env.BASE_URL;
 ---
 
-<Card classes="bg-blue-50 h-[200vh] dark:bg-blue-950 w-[70%] relative -top-20;">
-  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem cupiditate
-  consequuntur ut corrupti? Corporis suscipit soluta nesciunt atque omnis modi
-  similique cupiditate blanditiis. Id reprehenderit laboriosam eaque hic enim,
-  provident dolores repellat. Placeat est, vel eligendi facere tempore fugit
-  magnam.
-</Card>
+<div class="dark:bg-blue-950 w-[70%]">
+  <ProjectMain />
+</div>
