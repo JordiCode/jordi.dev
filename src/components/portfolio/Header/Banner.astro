@@ -18,13 +18,21 @@ const { classes } = Astro.props;
 </div>
 
 <script is:inline>
-  const bannerWrapper = document.querySelector(".banner-wrapper");
-  const bannerLoadingBar =
-    bannerWrapper.getElementsByClassName("loadingBar")[0];
-  const bannerImage = bannerWrapper.getElementsByTagName("img")[0];
+  document.addEventListener("astro:page-load", () => {
+    const bannerWrapper = document.querySelector(".banner-wrapper");
+    const bannerLoadingBar =
+      bannerWrapper.getElementsByClassName("loadingBar")[0];
+    const bannerImage = bannerWrapper.getElementsByTagName("img")[0];
 
-  bannerImage.addEventListener("load", () => {
-    bannerLoadingBar.classList.add("hidden");
-    bannerImage.classList.remove("opacity-0");
+    if (bannerImage.complete) {
+      bannerLoadingBar.classList.add("hidden");
+      bannerImage.classList.remove("opacity-0");
+      return;
+    } else {
+      bannerImage.addEventListener("load", () => {
+        bannerLoadingBar.classList.add("hidden");
+        bannerImage.classList.remove("opacity-0");
+      });
+    }
   });
 </script>

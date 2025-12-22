@@ -39,19 +39,21 @@ const experiences = [
         experiences.map(
           ({ title, company, startDate, endDate, description }) => {
             return (
-              <div class="we-wrapper p-3 rounded-xl bg-blue-200 dark:bg-blue-950">
-                <p class="text-xs text-slate-800">
+              <div class="we-wrapper p-3 rounded-xl bg-blue-400/50">
+                <p class="text-xs text-slate-800 dark:text-slate-50">
                   {startDate} - {endDate}
                 </p>
-                <h3 class="text-lg font-bold text-slate-800">{company}</h3>
-                <p class="dark:text-slate-300 text-blue-400 mb-2 text-xs">
+                <h3 class="text-lg font-bold text-slate-800 dark:text-slate-300">
+                  {company}
+                </h3>
+                <p class="dark:text-slate-900 text-blue-400 mb-2 text-xs">
                   {title}
                 </p>
                 <div class=" rounded-lg h-max">
-                  <p class="we-description bg-white rounded-lg hidden text-xs leading-5 p-3">
+                  <p class="we-description bg-background rounded-lg hidden text-xs leading-5 p-3">
                     {description}
                   </p>
-                  <span class="we-button p-3 hover:bg-blue-100 flex w-full font-medium  gap-2 items-center justify-start cursor-pointer rounded-lg">
+                  <span class="we-button p-3 hover:bg-background flex w-full font-medium  gap-2 items-center justify-start cursor-pointer rounded-lg">
                     <DotsIcon classes="size-4 min-w-4" />
                     <p>Details</p>
                   </span>
@@ -66,15 +68,17 @@ const experiences = [
 </div>
 
 <script is:inline>
-  const we = document.querySelectorAll(".we-wrapper");
+  document.addEventListener("astro:page-load", () => {
+    const we = document.querySelectorAll(".we-wrapper");
 
-  we.forEach((currentWe) => {
-    const weButton = currentWe.querySelector(".we-button");
-    const weDescription = currentWe.querySelector(".we-description");
+    we.forEach((currentWe) => {
+      const weButton = currentWe.querySelector(".we-button");
+      const weDescription = currentWe.querySelector(".we-description");
 
-    weButton.addEventListener("click", () => {
-      weDescription.classList.remove("hidden");
-      weButton.classList.add("hidden");
+      weButton.addEventListener("click", () => {
+        weDescription.classList.remove("hidden");
+        weButton.classList.add("hidden");
+      });
     });
   });
 </script>

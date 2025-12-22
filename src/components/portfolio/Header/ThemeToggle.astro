@@ -12,33 +12,35 @@ import MoonIcon from "../icons/MoonIcon.astro";
 </div>
 
 <script is:inline>
-  const darkLightIcon = document.getElementsByClassName("dark-light-icon")[0];
-  const sunIcon = darkLightIcon?.firstElementChild;
-  const moonIcon = darkLightIcon?.lastElementChild;
+  document.addEventListener("astro:page-load", () => {
+    const darkLightIcon = document.getElementsByClassName("dark-light-icon")[0];
+    const sunIcon = darkLightIcon?.firstElementChild;
+    const moonIcon = darkLightIcon?.lastElementChild;
 
-  const initialTheme = localStorage.getItem("theme") || "light";
+    const initialTheme = localStorage.getItem("theme") || "light";
 
-  if (initialTheme === "dark") {
-    sunIcon.classList.remove("hidden");
-  } else {
-    moonIcon.classList.remove("hidden");
-  }
-
-  const toggleTheme = () => {
-    const currentTheme = localStorage.getItem("theme");
-    const newTheme = currentTheme == "dark" ? "light" : "dark";
-
-    localStorage.setItem("theme", newTheme);
-
-    if (newTheme === "dark") {
-      document.documentElement.classList.add("dark");
+    if (initialTheme === "dark") {
+      sunIcon.classList.remove("hidden");
     } else {
-      document.documentElement.classList.remove("dark");
+      moonIcon.classList.remove("hidden");
     }
 
-    sunIcon.classList.toggle("hidden");
-    moonIcon.classList.toggle("hidden");
-  };
+    const toggleTheme = () => {
+      const currentTheme = localStorage.getItem("theme");
+      const newTheme = currentTheme == "dark" ? "light" : "dark";
 
-  darkLightIcon?.addEventListener("click", toggleTheme);
+      localStorage.setItem("theme", newTheme);
+
+      if (newTheme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      sunIcon.classList.toggle("hidden");
+      moonIcon.classList.toggle("hidden");
+    };
+
+    darkLightIcon?.addEventListener("click", toggleTheme);
+  });
 </script>

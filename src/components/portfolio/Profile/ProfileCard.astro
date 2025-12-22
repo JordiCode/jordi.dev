@@ -1,7 +1,7 @@
 ---
-import SocialMedia from "./SocialMedia.astro";
-import Card from "./ui/Card.astro";
-import LoadingBar from "./ui/LoadingBar.astro";
+import SocialMedia from "../SocialMedia.astro";
+import Card from "../ui/Card.astro";
+import LoadingBar from "../ui/LoadingBar.astro";
 ---
 
 <Card classes="pf-card-wrapper h-max w-full ">
@@ -20,7 +20,6 @@ import LoadingBar from "./ui/LoadingBar.astro";
   <div class="mt-3 text-center">
     <h3 class="text-2xl font-bold">JordiG</h3>
     <small class="dark:text-slate-300 text-slate-700">Frontend Developer</small>
-
     <div class="w-8 h-2 mt-2 mb-4 rounded-lg bg-blue-500 mx-auto"></div>
     <p class="font-light dark:text-slate-300 text-slate-700">
       The world is changing quckly...
@@ -32,13 +31,22 @@ import LoadingBar from "./ui/LoadingBar.astro";
 </Card>
 
 <script is:inline>
-  const pfCardWrapper = document.getElementsByClassName("pf-card-wrapper")[0];
-  const pfCardloadingBar =
-    pfCardWrapper.getElementsByClassName("pf-card-loadingBar")[0];
-  const pfCardImage = pfCardWrapper.getElementsByClassName("pf-card-image")[0];
+  document.addEventListener("astro:page-load", () => {
+    const pfCardWrapper = document.getElementsByClassName("pf-card-wrapper")[0];
+    const pfCardloadingBar =
+      pfCardWrapper.getElementsByClassName("pf-card-loadingBar")[0];
+    const pfCardImage =
+      pfCardWrapper.getElementsByClassName("pf-card-image")[0];
 
-  pfCardImage.addEventListener("load", () => {
-    pfCardloadingBar.classList.add("hidden");
-    pfCardImage.classList.remove("opacity-0");
+    if (pfCardImage.complete) {
+      pfCardloadingBar.classList.add("hidden");
+      pfCardImage.classList.remove("opacity-0");
+      return;
+    } else {
+      pfCardImage.addEventListener("load", () => {
+        pfCardloadingBar.classList.add("hidden");
+        pfCardImage.classList.remove("opacity-0");
+      });
+    }
   });
 </script>

@@ -2,14 +2,13 @@
 import Project from "./Project.astro";
 import data from "../../../data/projectsData";
 import SectionTitle from "../ui/SectionTitle.astro";
-import Card from "../ui/Card.astro";
 ---
 
 <SectionTitle title="Projects" iconName="target" />
 <div class="grid gap-5">
   {
     data.map((props) => (
-      <div class="rounded-xl p-3 bg-blue-50 dark:bg-blue-950">
+      <div class="rounded-xl p-3 bg-background">
         <Project {...props} />
       </div>
     ))
@@ -17,36 +16,38 @@ import Card from "../ui/Card.astro";
 </div>
 
 <script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const loadingMsg = entry.target.firstElementChild;
-        const projectContent = entry.target.lastElementChild;
+  document.addEventListener("astro:page-load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const loadingMsg = entry.target.firstElementChild;
+          const projectContent = entry.target.lastElementChild;
 
-        const projectImg = entry.target.querySelector(
-          ".projectImg"
-        ) as HTMLImageElement;
+          const projectImg = entry.target.querySelector(
+            ".projectImg"
+          ) as HTMLImageElement;
 
-        if (!projectImg.dataset.src) return;
+          if (!projectImg.dataset.src) return;
 
-        projectImg.src = projectImg.dataset.src;
+          projectImg.src = projectImg.dataset.src;
 
-        //When the projectImg image finishes loading, remove the loading message and display the projectContent.
-        projectImg.addEventListener("load", () => {
-          if (projectContent && loadingMsg) {
-            loadingMsg.classList.add("hidden");
-            projectContent.classList.remove("invisible", "h-10");
-          }
-        });
+          //When the projectImg image finishes loading, remove the loading message and display the projectContent.
+          projectImg.addEventListener("load", () => {
+            if (projectContent && loadingMsg) {
+              loadingMsg.classList.add("hidden");
+              projectContent.classList.remove("invisible", "h-10");
+            }
+          });
 
-        observer.unobserve(projectImg);
-      }
+          observer.unobserve(projectImg);
+        }
+      });
     });
-  });
 
-  const projects = document.querySelectorAll(".project");
+    const projects = document.querySelectorAll(".project");
 
-  projects.forEach((project) => {
-    observer.observe(project);
+    projects.forEach((project) => {
+      observer.observe(project);
+    });
   });
 </script>
