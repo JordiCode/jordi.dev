@@ -16,7 +16,6 @@ import MoonIcon from "../icons/MoonIcon.astro";
     const darkLightIcon = document.getElementsByClassName("dark-light-icon")[0];
     const sunIcon = darkLightIcon?.firstElementChild;
     const moonIcon = darkLightIcon?.lastElementChild;
-
     const initialTheme = localStorage.getItem("theme") || "light";
 
     if (initialTheme === "dark") {

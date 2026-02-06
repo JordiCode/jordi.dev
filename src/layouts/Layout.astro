@@ -3,11 +3,37 @@ import "../styles/app.css";
 import "../styles/reset.css";
 import Header from "../components/portfolio/Header/Main.astro";
 import Banner from "../components/portfolio/Header/Banner.astro";
+import Profile from "../components/portfolio/Profile/Main.astro";
 import { ClientRouter } from "astro:transitions";
+import Card from "../components/portfolio/ui/Card.astro";
+import Navigation from "../components/portfolio/ui/Navigation.astro";
 
 interface Props {
   title: string;
 }
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  {
+    iconName: "projects",
+    currentPath: currentPath,
+    url: "/portfolio",
+    text: "Projects",
+  },
+  {
+    iconName: "aboutMe",
+    currentPath: currentPath,
+    url: "/portfolio/about",
+    text: "About Me",
+  },
+  {
+    iconName: "contactMe",
+    currentPath: currentPath,
+    url: "/portfolio/contact",
+    text: "Contact Me",
+  },
+];
 
 const { title } = Astro.props;
 ---
@@ -33,20 +59,30 @@ const { title } = Astro.props;
       rel="stylesheet"
     />
     <meta name="generator" content={Astro.generator} />
-    <title>JordiG - {title}</title>
+    <title>{title} - JordiG</title>
     <ClientRouter />
   </head>
   <body class="bg-slate-300 dark:bg-slate-950 dark:text-white relative">
     <Header
-      classes="header fixed inset-x-0 transition-transform z-10 py-3 px-5 mx-auto w-full max-w-5xl border border-zinc-500 border-t-zinc-900 rounded-br-2xl rounded-bl-2xl"
+      classes="header fixed transition-transform inset-x-0 z-10 py-3 px-5 mx-auto w-full max-w-5xl border border-zinc-500 border-t-zinc-900 rounded-br-2xl rounded-bl-2xl rounded-br-2xl overflow-hidden bg-background/70 backdrop-blur-3xl"
     />
     <Banner
       classes="Banner group h-[50vh] overflow-hidden  relative brightness-100 hover:brightness-105"
     />
     <main
-      class="relative -top-20 w-full max-w-5xl mx-auto px-5 flex max-md:flex-col gap-4"
+      class="relative -top-24 w-full max-w-5xl mx-auto px-5 flex max-md:flex-col gap-4"
     >
-      <slot />
+      <Profile />
+      <div class="w-[70%]">
+        <div transition:name="secundary-header">
+          <Card classes=`mb-2`>
+            <Navigation navLinks={navLinks} />
+          </Card>
+        </div>
+        <div>
+          <slot />
+        </div>
+      </div>
     </main>
   </body>
 </html>

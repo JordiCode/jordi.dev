@@ -1,16 +1,15 @@
 ---
 import Project from "./Project.astro";
 import data from "../../../data/projectsData";
-import SectionTitle from "../ui/SectionTitle.astro";
+import Card from "../ui/Card.astro";
 ---
 
-<SectionTitle title="Projects" iconName="target" />
 <div class="grid gap-5">
   {
     data.map((props) => (
-      <div class="rounded-xl p-3 bg-background">
+      <Card>
         <Project {...props} />
-      </div>
+      </Card>
     ))
   }
 </div>

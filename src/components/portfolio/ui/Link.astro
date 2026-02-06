@@ -1,19 +1,26 @@
 ---
 import BlogIcon from "../icons/BlogIcon.astro";
 import HouseIcon from "../icons/HouseIcon.astro";
+import PhoneIcon from "../icons/PhoneIcon.astro";
+import TargetIcon from "../icons/TargetIcon.astro";
+import UserIcon from "../icons/UserIcon.astro";
 
 interface Props {
-  currentPath: string;
   iconName?: string;
   href: string;
   className?: string;
 }
 
-const { currentPath, iconName, href, className } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const { iconName, href, className } = Astro.props;
 
 const icons = {
   house: HouseIcon,
   blog: BlogIcon,
+  contactMe: PhoneIcon,
+  projects: TargetIcon,
+  aboutMe: UserIcon,
 };
 
 const SelectedIcon = iconName ? icons[iconName as keyof typeof icons] : null;
@@ -23,7 +30,7 @@ const isSamePage = currentPath == href;
 
 <a
   href={href}
-  class={`${className} ${iconName ? "flex gap-2" : ""}  ${isSamePage ? "pointer-events-none" : ""}`}
+  class={`${className} ${iconName ? "flex items-center gap-2" : ""}  ${isSamePage ? "pointer-events-none" : ""} py-2 px-4`}
 >
   {iconName && SelectedIcon ? <SelectedIcon /> : false}
   <slot />

@@ -1,35 +1,34 @@
 ---
-import normalizePath from "../../../scripts/portfolio/normalizePath";
+interface Props {
+  navLinks: {
+    iconName: string;
+    url: string;
+    text: string;
+  }[];
+  isHeader?: boolean;
+}
+
 import Link from "./Link.astro";
 
-const currentPath = normalizePath(Astro.url.pathname);
+const { navLinks, isHeader } = Astro.props;
 
-const navLinks = [
-  {
-    iconName: "house",
-    currentPath: currentPath,
-    url: "/",
-    text: "Portfolio",
-  },
-  {
-    iconName: "blog",
-    currentPath: currentPath,
-    url: "/blog",
-    text: "Blog",
-  },
-];
+var currentPath = Astro.url.pathname;
 ---
 
 <nav class="w-max py-1">
   <ul class="flex">
     {
-      navLinks.map(({ iconName, url, text, currentPath }) => {
-        const isTabActive = currentPath == url;
+      navLinks.map(({ iconName, url, text }) => {
+        let isTabActive = currentPath == url;
+        if (isHeader) {
+          isTabActive = currentPath.includes(url);
+        }
+
         return (
           <li
-            class={`  ${isTabActive ? "text-blue-400 dark:text-blue-400 bg-white " : "dark:text-zinc-300 text-zinc-700 hover:text-blue-500 dark:hover:text-blue-400 "}   py-2 px-4 rounded-lg transition-colors font-bold tracking-wider`}
+            class={`  ${isTabActive ? "text-blue-400 dark:text-blue-400 bg-white " : "dark:text-zinc-300 text-zinc-700 hover:text-blue-500 dark:hover:text-blue-400 "}   transition-colors font-bold tracking-wider rounded-lg `}
           >
-            <Link href={url} currentPath={currentPath} iconName={iconName}>
+            <Link href={url} iconName={iconName}>
               {text}
             </Link>
           </li>
