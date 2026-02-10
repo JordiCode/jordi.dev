@@ -6,6 +6,6 @@ interface Props {
 const { classes } = Astro.props;
 ---
 
-<div class=`p-3 rounded-xl bg-background ${classes}`>
+<div class={`p-3 rounded-xl bg-background ${classes}`}>
   <slot />
 </div>

@@ -1,10 +1,56 @@
 ---
+import Project from "../components/portfolio/Project.astro";
+import data from "../data/projectsData";
 import Layout from "../layouts/Layout.astro";
-import ToTopButton from "../components/portfolio/ToTopButton.astro";
-import ProjectMain from "../components/portfolio/Projects/Main.astro";
+import Card from "../components/portfolio/ui/Card.astro";
 ---
 
 <Layout title="Portfolio">
-  <ProjectMain />
-  <ToTopButton />
+  <div class="grid gap-5">
+    {
+      data.map((props) => (
+        <Card classes={'rounded-t-none pt-6'}>
+          <Project {...props} />
+        </Card>
+      ))
+    }
+  </div>
 </Layout>
+
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const loadingMsg = entry.target.firstElementChild;
+          const projectContent = entry.target.lastElementChild;
+
+          const projectImg = entry.target.querySelector(
+            ".projectImg"
+          ) as HTMLImageElement;
+
+          if (!projectImg.dataset.src) return;
+
+          projectImg.src = projectImg.dataset.src;
+
+          //When the projectImg image finishes loading, remove the loading message and display the projectContent.
+          projectImg.addEventListener("load", () => {
+            if (projectContent && loadingMsg) {
+              loadingMsg.classList.add("hidden");
+              projectContent.classList.remove("invisible", "h-10");
+            }
+          });
+
+          observer.unobserve(projectImg);
+        }
+      });
+    });
+
+    const projects = document.querySelectorAll(".project");
+
+    projects.forEach((project) => {
+      observer.observe(project);
+    });
+  });
+</script>

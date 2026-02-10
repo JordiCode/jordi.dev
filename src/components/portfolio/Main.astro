@@ -1,0 +1,15 @@
+---
+import Content from "./Content.astro";
+import Profile from "./Profile/Main.astro";
+import ScrollToTop from "./ScrollToTop.astro";
+---
+ 
+<main
+    class="relative -top-24 w-full max-w-5xl mx-auto px-5 flex max-md:flex-col gap-4"
+>
+    <Profile />
+    <Content> 
+        <slot />
+    </Content>
+    <ScrollToTop />
+</main>

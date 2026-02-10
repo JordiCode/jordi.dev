@@ -1,39 +1,14 @@
 ---
 import "../styles/app.css";
 import "../styles/reset.css";
+import { ClientRouter } from "astro:transitions";
 import Header from "../components/portfolio/Header/Main.astro";
 import Banner from "../components/portfolio/Header/Banner.astro";
-import Profile from "../components/portfolio/Profile/Main.astro";
-import { ClientRouter } from "astro:transitions";
-import Card from "../components/portfolio/ui/Card.astro";
-import Navigation from "../components/portfolio/ui/Navigation.astro";
+import Main from "../components/portfolio/Main.astro";
 
 interface Props {
   title: string;
 }
-
-const currentPath = Astro.url.pathname;
-
-const navLinks = [
-  {
-    iconName: "projects",
-    currentPath: currentPath,
-    url: "/portfolio",
-    text: "Projects",
-  },
-  {
-    iconName: "aboutMe",
-    currentPath: currentPath,
-    url: "/portfolio/about",
-    text: "About Me",
-  },
-  {
-    iconName: "contactMe",
-    currentPath: currentPath,
-    url: "/portfolio/contact",
-    text: "Contact Me",
-  },
-];
 
 const { title } = Astro.props;
 ---
@@ -62,34 +37,22 @@ const { title } = Astro.props;
     <title>{title} - JordiG</title>
     <ClientRouter />
   </head>
-  <body class="bg-slate-300 dark:bg-slate-950 dark:text-white relative">
-    <Header
-      classes="header fixed transition-transform inset-x-0 z-10 py-3 px-5 mx-auto w-full max-w-5xl border border-zinc-500 border-t-zinc-900 rounded-br-2xl rounded-bl-2xl rounded-br-2xl overflow-hidden bg-background/70 backdrop-blur-3xl"
-    />
-    <Banner
-      classes="Banner group h-[50vh] overflow-hidden  relative brightness-100 hover:brightness-105"
-    />
-    <main
-      class="relative -top-24 w-full max-w-5xl mx-auto px-5 flex max-md:flex-col gap-4"
-    >
-      <Profile />
-      <div class="w-[70%]">
-        <div transition:name="secundary-header">
-          <Card classes=`mb-2`>
-            <Navigation navLinks={navLinks} />
-          </Card>
-        </div>
-        <div>
-          <slot />
-        </div>
-      </div>
-    </main>
+  <body 
+    class="bg-slate-300 dark:bg-slate-950 dark:text-white relative"
+  >
+    <Header />
+    <Banner />
+    <Main>
+      <slot />
+    </Main>
   </body>
 </html>
 
 <!-- Set the theme before the page is rendered to avoid a flash -->
+ 
 <script is:inline>
   document.addEventListener("astro:page-load", () => {
+    
     const theme = localStorage.getItem("theme");
 
     if (theme === "dark") {
@@ -101,33 +64,35 @@ const { title } = Astro.props;
     }
 
     const banner = document.getElementsByClassName("Banner")[0];
-    const header = document.getElementsByClassName("header")[0];
-    const ToTopButton = document.getElementsByClassName("ToTopButton")[0];
+    const ScrollToTop = document.getElementsByClassName("ScrollToTop")[0];
 
+
+    const header = document.getElementsByClassName("header")[0];
     const observer = new IntersectionObserver(
       (entries) => {
         const bannerElement = entries[0];
 
         if (bannerElement.isIntersecting) {
           header.classList.remove("-translate-y-20");
-          ToTopButton.classList.add("invisible");
-          ToTopButton.classList.remove("-translate-y-28");
+          ScrollToTop.classList.add("invisible");
+          ScrollToTop.classList.remove("-translate-y-28");
         } else {
           header.classList.add("-translate-y-20");
-          ToTopButton.classList.remove("invisible");
-          ToTopButton.classList.add("-translate-y-28");
+          ScrollToTop.classList.remove("invisible");
+          ScrollToTop.classList.add("-translate-y-28");
         }
       },
       { rootMargin: "-170px 0px 0px 0px" }
     );
-
+    
     observer.observe(banner);
 
-    ToTopButton.addEventListener("click", () => {
+    ScrollToTop.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
     });
   });
+
 </script>

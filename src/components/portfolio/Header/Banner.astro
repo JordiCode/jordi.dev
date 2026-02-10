@@ -1,14 +1,9 @@
 ---
 import LoadingBar from "../ui/LoadingBar.astro";
-
-interface Props {
-  classes?: string;
-}
-const { classes } = Astro.props;
 ---
 
 <div
-  class={`banner-wrapper ${classes}`}
+  class={`banner-wrapper Banner group h-[50vh] overflow-hidden  relative brightness-100 hover:brightness-105`}
   transition:persist
   transition:name="main-banner"
 >
