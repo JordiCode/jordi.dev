@@ -1,5 +1,6 @@
 ---
 import Navigation from "./ui/Navigation.astro";
+import SecondaryNavigation from "./ui/SecondaryNavigation.astro";
 const navLinks = [
   {
     iconName: "projects",
@@ -17,13 +18,13 @@ const navLinks = [
     text: "Contact Me",
   },
 ];
---- 
- 
+---
+
 <section transition:name="main-header" class="w-full">
-    <div class={`rounded-b-none p-3 rounded-xl bg-blue-300 dark:bg-[#172650]`}>
-      <Navigation navLinks={navLinks} />
-    </div>
-    <article>
-        <slot />
-    </article>
+  <div class={`rounded-b-none p-3 rounded-xl bg-blue-300 dark:bg-[#172650]`}>
+    <SecondaryNavigation navLinks={navLinks} />
+  </div>
+  <article>
+    <slot />
+  </article>
 </section>

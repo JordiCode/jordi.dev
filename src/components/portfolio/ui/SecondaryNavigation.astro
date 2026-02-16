@@ -16,7 +16,7 @@ var currentPath = Astro.url.pathname;
 ---
 
 <nav class="py-1">
-  <ul class="flex flex-wrap w-full gap-1">
+  <ul class="flex max-sm:flex-col w-full gap-1">
     {
       navLinks.map(({ iconName, url, text }) => {
         let isTabActive = currentPath == url;
