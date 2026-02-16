@@ -9,14 +9,13 @@ import Card from "../components/portfolio/ui/Card.astro";
   <div class="grid gap-5">
     {
       data.map((props) => (
-        <Card classes={'rounded-t-none pt-6'}>
+        <Card classes={"pt-6"}>
           <Project {...props} />
         </Card>
       ))
     }
   </div>
 </Layout>
-
 
 <script>
   document.addEventListener("astro:page-load", () => {
@@ -27,7 +26,7 @@ import Card from "../components/portfolio/ui/Card.astro";
           const projectContent = entry.target.lastElementChild;
 
           const projectImg = entry.target.querySelector(
-            ".projectImg"
+            ".projectImg",
           ) as HTMLImageElement;
 
           if (!projectImg.dataset.src) return;
