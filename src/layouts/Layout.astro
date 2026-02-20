@@ -4,7 +4,9 @@ import "../styles/reset.css";
 import { ClientRouter } from "astro:transitions";
 import Header from "../components/portfolio/Header/Main.astro";
 import Banner from "../components/portfolio/Header/Banner.astro";
-import Main from "../components/portfolio/Main.astro";
+import MainProfile from "../components/portfolio/Profile/MainProfile.astro";
+import ScrollToTop from "../components/portfolio/ScrollToTop.astro";
+import Content from "../components/portfolio/Content.astro";
 
 interface Props {
   title: string;
@@ -37,22 +39,25 @@ const { title } = Astro.props;
     <title>{title} - JordiG</title>
     <ClientRouter />
   </head>
-  <body 
-    class="bg-slate-300 dark:bg-slate-950 dark:text-white relative"
-  >
+  <body class="bg-slate-300 dark:bg-slate-950 dark:text-white relative">
     <Header />
     <Banner />
-    <Main>
-      <slot />
-    </Main>
+    <main
+      class="relative -top-24 w-full max-w-5xl mx-auto px-5 flex max-md:flex-col gap-4"
+    >
+      <MainProfile />
+      <Content>
+        <slot />
+      </Content>
+      <ScrollToTop />
+    </main>
   </body>
 </html>
 
 <!-- Set the theme before the page is rendered to avoid a flash -->
- 
+
 <script is:inline>
   document.addEventListener("astro:page-load", () => {
-    
     const theme = localStorage.getItem("theme");
 
     if (theme === "dark") {
@@ -65,7 +70,6 @@ const { title } = Astro.props;
 
     const banner = document.getElementsByClassName("Banner")[0];
     const ScrollToTop = document.getElementsByClassName("ScrollToTop")[0];
-
 
     const header = document.getElementsByClassName("header")[0];
     const observer = new IntersectionObserver(
@@ -82,9 +86,9 @@ const { title } = Astro.props;
           ScrollToTop.classList.add("-translate-y-28");
         }
       },
-      { rootMargin: "-170px 0px 0px 0px" }
+      { rootMargin: "-170px 0px 0px 0px" },
     );
-    
+
     observer.observe(banner);
 
     ScrollToTop.addEventListener("click", () => {
@@ -94,5 +98,4 @@ const { title } = Astro.props;
       });
     });
   });
-
 </script>
