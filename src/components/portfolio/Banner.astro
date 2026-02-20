@@ -1,0 +1,37 @@
+---
+import LoadingBar from "./ui/LoadingBar.astro";
+---
+
+<div
+  class={`banner-wrapper Banner group h-[50vh] overflow-hidden  relative brightness-100 hover:brightness-105`}
+  transition:persist
+  transition:name="main-banner"
+>
+  <LoadingBar classes="loadingBar absolute inset-x-0 inset-y-0 m-auto" />
+
+  <img
+    src="/banner.jpg"
+    alt="Banner"
+    class="opacity-0 relative w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+  />
+
+  <script is:inline>
+    document.addEventListener("astro:page-load", () => {
+      const bannerWrapper = document.querySelector(".banner-wrapper");
+      const bannerLoadingBar =
+        bannerWrapper.getElementsByClassName("loadingBar")[0];
+      const bannerImage = bannerWrapper.getElementsByTagName("img")[0];
+
+      if (bannerImage.complete) {
+        bannerLoadingBar.classList.add("hidden");
+        bannerImage.classList.remove("opacity-0");
+        return;
+      } else {
+        bannerImage.addEventListener("load", () => {
+          bannerLoadingBar.classList.add("hidden");
+          bannerImage.classList.remove("opacity-0");
+        });
+      }
+    });
+  </script>
+</div>
