@@ -1,0 +1,82 @@
+---
+const { classes } = Astro.props;
+
+import Card from "../ui/Card.astro";
+import DotsIcon from "../icons/DotsIcon.astro";
+import WorkIcon from "../icons/WorkIcon.astro";
+
+const experiences = [
+  {
+    title: "Frontend Developer",
+    company: "Freelance",
+    startDate: "2024",
+    endDate: "Present",
+    description:
+      "Desarrollo sitios web, aplicaciones y productos digitales, desde el diseño hasta la implementación y mantenimiento",
+  },
+  {
+    title: "Tecnico SAT",
+    company: "Casino Grand Victoria",
+    startDate: "2022",
+    endDate: "2024",
+    description:
+      "Desempeñe de forma efectiva mi labor de tecnico SAT, reparando de forma inmediata las averias de las maquinas de juego del establecimiento, como realizando tambien mantenimiento de prevencion de fallos",
+  },
+  {
+    title: "Empacador",
+    company: "Jumbo",
+    startDate: "2021",
+    endDate: "2022",
+    description:
+      "Desempeñe de forma efectiva la tarea de empacar las compras de los clientes, ayudarles a llevar su compra al coche, todo con un buen trato, amabilidad y atencion",
+  },
+];
+---
+
+<Card classes={classes}>
+  <div class="flex gap-2 items-center mb-6">
+    <WorkIcon />
+    <h2 class="text-black dark:text-white text-2xl">Work Experience</h2>
+  </div>
+  <div class="grid gap-3">
+    {
+      experiences.map(({ title, company, startDate, endDate, description }) => {
+        return (
+          <div class="workExp-wrapper p-3 rounded-xl bg-blue-400">
+            <p class="text-xs mb-2 text-slate-800 dark:text-slate-200">
+              {startDate} - {endDate}
+            </p>
+            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-50">
+              {company}
+            </h3>
+            <p class="dark:text-slate-900 text-white mb-2 text-sm font-medium">
+              {title}
+            </p>
+            <div class=" rounded-lg h-max">
+              <p class="workExp-description bg-background rounded-lg hidden text-xs leading-5 p-3">
+                {description}
+              </p>
+              <span class="workExp-button p-3 hover:bg-background flex w-full font-medium  gap-2 items-center justify-start cursor-pointer rounded-lg">
+                <DotsIcon classes="size-4 min-w-4" />
+                <p>Details</p>
+              </span>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</Card>
+
+<script is:inline>
+  const workExp = document.querySelectorAll(".workExp-wrapper");
+
+  workExp.forEach((currentWe) => {
+    const workExpButton = currentWe.querySelector(".workExp-button");
+    const workExpDescription = currentWe.querySelector(".workExp-description");
+    workExpButton.addEventListener("click", () => {
+      workExpDescription.classList.remove("hidden");
+      workExpButton.classList.add("hidden");
+    });
+  });
+</script>

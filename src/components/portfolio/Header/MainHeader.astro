@@ -1,27 +1,35 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
-import Navigation from "../ui/Navigation.astro";
+import Nav from "./Nav.astro";
+import PhoneNav from "./PhoneNav.astro";
+import MenuBarIcon from "../icons/MenuBarIcon.astro";
 
 interface Props {
-  classes?: string;
   id?: string;
 }
-
-const navLinks = [
-  {
-    iconName: "house",
-    url: "/portfolio",
-    text: "Portfolio",
-  },
-];
 ---
 
 <header
-  class="header fixed transition-transform inset-x-0 z-10 py-3 px-5 mx-auto w-full max-w-5xl border border-zinc-500 border-t-zinc-900 rounded-bl-2xl rounded-br-2xl overflow-hidden bg-background/70 backdrop-blur-3xl"
-  transition:name="main-header"
+  class="fixed inset-x-0 z-40 py-5 px-5 mx-auto w-full max-w-5xl border border-zinc-500 border-t-zinc-900 rounded-bl-2xl rounded-br-2xl bg-background/70 backdrop-blur-3xl"
 >
-  <div class="flex justify-between items-center overflow-hidden">
-    <Navigation navLinks={navLinks} isHeader={true} />
+  <div class="flex gap-5 justify-between items-center">
+    <Nav aditionalClasses="max-md:hidden" />
+
+    <input
+      type="checkbox"
+      id="menu-toggle"
+      class="peer hidden"
+      autocomplete="off"
+    />
+    <label
+      for="menu-toggle"
+      class="md:hidden peer-checked:bg-blue-400 p-2 rounded-full"
+    >
+      <MenuBarIcon />
+    </label>
+    <PhoneNav
+      aditionalClasses="hidden peer-checked:block md:peer-checked:hidden"
+    />
     <ThemeToggle />
   </div>
 </header>

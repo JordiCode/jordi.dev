@@ -50,7 +50,7 @@ const data = [
     tools: ["astro", "tailwindcss"],
   },
   {
-    status: "production",
+    status: "disabled",
     linkPreview: "https://www.lawrencecollisioncenterinc.com",
     linkCode: undefined,
     srcImg: "/projects/project-lawrance-collision-center.png",

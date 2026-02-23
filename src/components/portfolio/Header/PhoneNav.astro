@@ -1,0 +1,42 @@
+---
+const { aditionalClasses } = Astro.props;
+
+import TargetIcon from "../icons/TargetIcon.astro";
+import UserIcon from "../icons/UserIcon.astro";
+---
+
+<nav
+    class=`absolute top-18 left-2 border p-5 px-10 rounded-2xl rounded-br-2xl bg-background ${aditionalClasses}`
+>
+    <ul class="flex flex-col w-full gap-6">
+        <li
+            class="hover:bg-blue-400 active:bg-blue-400 p-1 px-2 rounded-lg dark:hover:text-black"
+        >
+            <a href={"#aboutMe"} class={`menu-link flex items-center gap-2 `}>
+                <UserIcon />
+                <span>About Me</span>
+            </a>
+        </li>
+        <li
+            class="hover:bg-blue-400 active:bg-blue-400 p-1 px-2 rounded-lg dark:hover:text-black"
+        >
+            <a href={"#projects"} class={`menu-link flex items-center gap-2`}>
+                <TargetIcon />
+                <span>Projects</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    const menuLinks = document.querySelectorAll(".menu-link");
+    const menuToggle = document.querySelector(
+        "#menu-toggle",
+    ) as HTMLInputElement;
+
+    menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (menuToggle) menuToggle.checked = false;
+        });
+    });
+</script>

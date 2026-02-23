@@ -1,0 +1,67 @@
+---
+import UserIcon from "./icons/UserIcon.astro";
+import Card from "./ui/Card.astro";
+---
+
+<Card classes="bg-blue-400">
+    <div class="flex gap-2" id="aboutMe">
+        <UserIcon classes="size-6 " />
+        <h3>About Me</h3>
+    </div>
+    <Card classes="py-6">
+        <h1 class="text-2xl">Resumen Professional</h1>
+        <p class="intro font-light">
+            Soy un <strong>Desarrollador web especializado en FrontEnd</strong> disfruto
+            de aprender y reforzar mis conocimientos cada día, como también trabajar
+            en equipo para desarrollar soluciones efectivas y elegantes a los problemas
+            que se presenten.
+        </p>
+        <br />
+        <p>
+            <div class="projects">
+                <h2 class="text-lg">Mis proyectos mas destacados:</h2>
+                <p class="mb-3 font-light">
+                    Actualmente estoy trabajando en 3 proyectos especiales:
+                </p>
+                <ul class="interests pl-2 grid gap-3">
+                    <li>
+                        <a
+                            href="https://www.figma.com/design/FQ8MnQH6LaXT5WSTphUHjT/Archit?node-id=0-1&t=rcTd4OLT7H4PB3C9-1"
+                            class="hover:bg-blue-400 p-2 rounded-md"
+                            target="_blank"
+                        >
+                            <span>⭐️ Archit:</span>
+                            <span class="font-light">
+                                Red Social enfocada en la productividad personal
+                            </span>
+                        </a>
+                        <li>
+                            <a
+                                href="https://www.figma.com/design/j6NhW3EjNLkiEPZ4Scqqmb/AppLanguages?node-id=0-1&t=rcTd4OLT7H4PB3C9-1"
+                                class="hover:bg-blue-400 p-2 rounded-md"
+                                target="_blank"
+                            >
+                                <span>⭐️ ComLang:</span>
+                                <span class="font-light">
+                                    App de Aprendizajes de idiomas
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="hover:bg-blue-400 p-2 rounded-md"
+                                target="_blank"
+                            >
+                                <span>⭐️ DeliTracker:</span>
+                                <span class="font-light">
+                                    App de seguimiento de delivery
+                                </span>
+                            </a>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </p>
+    </Card>
+</Card>

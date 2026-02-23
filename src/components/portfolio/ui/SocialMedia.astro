@@ -2,20 +2,22 @@
 import GithubIcon from "../icons/Stack/GithubIcon.astro";
 import LinkedinIcon from "../icons/LinkedinIcon.astro";
 
-const linkClasses =
-  "group size-10 flex justify-center items-center hover:bg-blue-500 dark:bg-blue-400/50 dark:hover:brightness-120 transition-all rounded-lg";
 const iconClasses =
   "text-blue-500 group-hover:text-white dark:text-white dark:text-white size-6";
 ---
 
 <div class="flex gap-2 mx-auto w-max mt-3">
-  <a href="https://github.com/JordiCode" target="_blank" class={linkClasses}>
+  <a
+    href="https://github.com/JordiCode"
+    target="_blank"
+    class={"group size-10 flex justify-center items-center hover:bg-blue-500 dark:bg-blue-400/50 dark:hover:brightness-120 transition-all rounded-lg"}
+  >
     <GithubIcon classes={iconClasses} />
   </a>
   <a
     href="https://linkedin.com/in/yordi-gabriel-vargas-acosta-b347a0268"
     target="_blank"
-    class={linkClasses}
+    class={"group size-10 flex justify-center items-center hover:bg-blue-500 dark:bg-blue-400/50 dark:hover:brightness-120 transition-all rounded-lg"}
   >
     <LinkedinIcon classes={iconClasses} />
   </a>

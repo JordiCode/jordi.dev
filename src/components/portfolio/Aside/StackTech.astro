@@ -1,4 +1,6 @@
 ---
+const { classes } = Astro.props;
+
 import ReactIcon from "../icons/Stack/ReactIcon.astro";
 import FigmaIcon from "../icons/Stack/FigmaIcon.astro";
 import NodeJsIcon from "../icons/Stack/NodeJsIcon.astro";
@@ -15,8 +17,8 @@ import ReactNativeIcon from "../icons/Stack/ReactNativeIcon.astro";
 import HtmlIcon from "../icons/Stack/HtmlIcon.astro";
 import JavaScriptIcon from "../icons/Stack/JavaScriptIcon.astro";
 import CssIcon from "../icons/Stack/CssIcon.astro";
-import SectionTitle from "../ui/SectionTitle.astro";
 import Card from "../ui/Card.astro";
+import StackIcon from "../icons/StackIcon.astro";
 
 const technologies = [
   {
@@ -102,21 +104,26 @@ const technologies = [
 ];
 ---
 
-<Card>
-  <SectionTitle title="Stack" iconName="stack" />
-  <div class="flex flex-wrap gap-3">
-    {
-      technologies.map(({ Icon, text, size }) => {
-        return (
-          <div
-            class="group text-xs flex gap-1 items-center bg-blue-400/50 hover:bg-blue-200 dark:hover:bg-blue-400 rounded-xl px-2 py-1"
-            title={text}
-          >
-            <Icon classes={size} />
-            <p>{text}</p>
-          </div>
-        );
-      })
-    }
-  </div>
-</Card>
+<div class={`sticky top-24  ${classes}`}>
+  <Card>
+    <div class="flex gap-2 items-center mb-6">
+      <StackIcon />
+      <h2 class="text-black dark:text-white text-2xl">Stack</h2>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      {
+        technologies.map(({ Icon, text, size }) => {
+          return (
+            <div
+              class="group text-xs flex gap-1 items-center bg-blue-400/50 hover:bg-blue-200 dark:hover:bg-blue-400 rounded-xl px-2 py-1"
+              title={text}
+            >
+              <Icon classes={size} />
+              <p>{text}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Card>
+</div>

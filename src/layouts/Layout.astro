@@ -1,10 +1,9 @@
 ---
 import "../styles/app.css";
 import "../styles/reset.css";
-import { ClientRouter } from "astro:transitions";
 import MainHeader from "../components/portfolio/Header/MainHeader.astro";
+import MainAside from "../components/portfolio/Aside/MainAside.astro";
 import Banner from "../components/portfolio/Banner.astro";
-import MainProfile from "../components/portfolio/Profile/MainProfile.astro";
 import ScrollToTop from "../components/portfolio/ScrollToTop.astro";
 
 interface Props {
@@ -15,7 +14,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-pt-24 scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -36,16 +35,15 @@ const { title } = Astro.props;
     />
     <meta name="generator" content={Astro.generator} />
     <title>{title} - JordiG</title>
-    <ClientRouter />
   </head>
   <body class="bg-slate-300 dark:bg-slate-950 dark:text-white relative">
     <MainHeader />
     <Banner />
     <main
-      class="relative -top-24 w-full max-w-5xl mx-auto px-5 flex max-md:flex-col gap-4"
+      class="relative -mt-64 max:w-full max-w-5xl mx-auto px-3 flex max-md:flex-col gap-4"
     >
-      <MainProfile />
-      <article>
+      <MainAside />
+      <article class="grid gap-5">
         <slot />
       </article>
       <ScrollToTop />
@@ -53,48 +51,41 @@ const { title } = Astro.props;
   </body>
 </html>
 
-<!-- Set the theme before the page is rendered to avoid a flash -->
+<script>
+  const theme = localStorage.getItem("theme");
 
-<script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const theme = localStorage.getItem("theme");
+  if (theme === "dark") {
+    localStorage.setItem("theme", "dark");
+    document.documentElement.classList.add("dark");
+  } else {
+    localStorage.setItem("theme", "light");
+    document.documentElement.classList.remove("dark");
+  }
 
-    if (theme === "dark") {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
+  const banner = document.getElementsByClassName("Banner")[0];
+  const ScrollToTop = document.getElementsByClassName("ScrollToTop")[0];
 
-    const banner = document.getElementsByClassName("Banner")[0];
-    const ScrollToTop = document.getElementsByClassName("ScrollToTop")[0];
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const bannerElement = entries[0];
 
-    const header = document.getElementsByClassName("header")[0];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const bannerElement = entries[0];
+      if (bannerElement.isIntersecting) {
+        ScrollToTop.classList.add("invisible");
+        ScrollToTop.classList.remove("-translate-y-28");
+      } else {
+        ScrollToTop.classList.remove("invisible");
+        ScrollToTop.classList.add("-translate-y-28");
+      }
+    },
+    { rootMargin: "0px 0px 0px 0px" },
+  );
 
-        if (bannerElement.isIntersecting) {
-          header.classList.remove("-translate-y-20");
-          ScrollToTop.classList.add("invisible");
-          ScrollToTop.classList.remove("-translate-y-28");
-        } else {
-          header.classList.add("-translate-y-20");
-          ScrollToTop.classList.remove("invisible");
-          ScrollToTop.classList.add("-translate-y-28");
-        }
-      },
-      { rootMargin: "-170px 0px 0px 0px" },
-    );
+  observer.observe(banner);
 
-    observer.observe(banner);
-
-    ScrollToTop.addEventListener("click", () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
+  ScrollToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
     });
   });
 </script>

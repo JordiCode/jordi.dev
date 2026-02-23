@@ -1,0 +1,45 @@
+---
+import Project from "./Project.astro";
+import projectsData from "../../../data/projectsData";
+import Card from "../ui/Card.astro";
+import UserIcon from "../icons/UserIcon.astro";
+---
+
+<Card classes="bg-blue-400">
+  <span class="flex gap-2" id="projects">
+    <UserIcon classes="size-6 " />
+    <h3>Projects</h3>
+  </span>
+  <div class="grid gap-5">
+    {
+      projectsData.map((props) => (
+        <Card classes={"pb-6"}>
+          <Project {...props} />
+        </Card>
+      ))
+    }
+  </div>
+</Card>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const projectImg = entry.target.querySelector(
+          ".projectImg",
+        ) as HTMLImageElement;
+
+        if (!projectImg.dataset.src) return;
+
+        projectImg.src = projectImg.dataset.src;
+        observer.unobserve(projectImg);
+      }
+    });
+  });
+
+  const projects = document.querySelectorAll(".project");
+
+  projects.forEach((project) => {
+    observer.observe(project);
+  });
+</script>

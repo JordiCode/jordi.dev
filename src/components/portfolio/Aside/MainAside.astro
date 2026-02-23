@@ -4,11 +4,8 @@ import StackTech from "./StackTech.astro";
 import WorkExperience from "./WorkExperience.astro";
 ---
 
-<div
-  class="profile-wrapper flex flex-col gap-4 w-full max-w-[320px] max-md:mx-auto max-sm:max-w-full"
-  transition:name="main-profile"
->
+<section class="md:max-w-[320px] flex flex-col flex-wrap gap-4 max-md:mx-auto">
   <ProfileCard />
-  <StackTech />
   <WorkExperience />
-</div>
+  <StackTech />
+</section>

@@ -1,0 +1,24 @@
+---
+const { aditionalClasses } = Astro.props;
+import TargetIcon from "../icons/TargetIcon.astro";
+import UserIcon from "../icons/UserIcon.astro";
+---
+
+<nav class={`${aditionalClasses}`}>
+    <ul class=`flex flex-wrap w-full gap-6`>
+        <li
+            class="hover:bg-blue-400 py-1 px-2 rounded-lg dark:hover:text-black"
+        >
+            <a href={"#aboutMe"} class={`flex items-center gap-2`}>
+                <UserIcon />
+                <span>About Me</span>
+            </a>
+        </li>
+        <li class="hover:bg-blue-400 p-1 px-2 rounded-lg dark:hover:text-black">
+            <a href={"#projects"} class={`flex items-center gap-2`}>
+                <TargetIcon />
+                <span>Projects</span>
+            </a>
+        </li>
+    </ul>
+</nav>

@@ -4,14 +4,13 @@ import Card from "../ui/Card.astro";
 import LoadingBar from "../ui/LoadingBar.astro";
 ---
 
-<Card classes="pf-card-wrapper h-max w-full ">
+<Card classes=`pf-card-wrapper h-max w-full w-full  max-w-[320px] mx-auto`>
   <div
     class="relative h-72 max-md:h-64 overflow-hidden rounded-xl bg-slate-300 dark:bg-slate-950"
   >
     <img
       src="/profile-card.jpg"
-      class="pf-card-image w-full h-full object-cover opacity-0"
-      alt="ProfileCard"
+      class="pf-card-image w-full h-full object-cover z-10 relative"
     />
     <LoadingBar
       classes="pf-card-loadingBar absolute inset-x-0 inset-y-0 m-auto"
@@ -29,24 +28,3 @@ import LoadingBar from "../ui/LoadingBar.astro";
     <SocialMedia />
   </div>
 </Card>
-
-<script is:inline>
-  document.addEventListener("astro:page-load", () => {
-    const pfCardWrapper = document.getElementsByClassName("pf-card-wrapper")[0];
-    const pfCardloadingBar =
-      pfCardWrapper.getElementsByClassName("pf-card-loadingBar")[0];
-    const pfCardImage =
-      pfCardWrapper.getElementsByClassName("pf-card-image")[0];
-
-    if (pfCardImage.complete) {
-      pfCardloadingBar.classList.add("hidden");
-      pfCardImage.classList.remove("opacity-0");
-      return;
-    } else {
-      pfCardImage.addEventListener("load", () => {
-        pfCardloadingBar.classList.add("hidden");
-        pfCardImage.classList.remove("opacity-0");
-      });
-    }
-  });
-</script>

@@ -1,0 +1,77 @@
+---
+import EyeIcon from "../icons/EyeIcon.astro";
+import GithubIcon from "../icons/Stack/GithubIcon.astro";
+import LoadingIcon from "../icons/LoadingIcon.astro";
+
+const linkClasses =
+  "items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-black dark:text-white dark:hover:text-black  transition hover:bg-blue-400   border-zinc-700 text-md  hover:border-gray-900 group max-w-fit rounded-md focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black";
+
+interface Props {
+  status: string;
+  srcImg: string;
+  title: string;
+  description: string;
+  linkPreview: string | undefined;
+  linkCode: string | undefined;
+  tools: string[];
+}
+
+const statusColor: { [key: string]: string } = {
+  production: "bg-green-700",
+  building: "bg-yellow-700",
+  disabled: "bg-red-700",
+};
+
+const { status, srcImg, title, description, linkPreview, linkCode } =
+  Astro.props;
+---
+
+<div class="project">
+  <div class={"flex flex-col max-lg:grid"}>
+    <div class="relative min-h-24">
+      <img
+        data-src={srcImg}
+        class="relative z-10 projectImg border-zinc-600
+         max-lg:max-w-full border rounded-lg"
+      />
+      <span class="absolute top-0 left-0 flex gap-4">
+        <LoadingIcon />
+        <p class="text-sm font-light">loading</p>
+      </span>
+    </div>
+
+    <div class="pt-4">
+      <div class={"flex flex-col items-start gap-2 mb-5"}>
+        <h2 class="text-2xl">{title}</h2>
+        <span
+          class={`text-sm ${statusColor[status]} text-white  px-4 py-0.5 rounded-md capitalize`}
+          title={"Status"}
+        >
+          {status}
+        </span>
+      </div>
+      <p class="text-sm text-zinc-600 dark:text-zinc-300 mb-4">
+        {description}
+      </p>
+
+      <a
+        href={linkCode}
+        target={"_blank"}
+        role="link"
+        class={`${linkCode == undefined ? "hidden" : "inline-flex"} ${linkClasses}`}
+      >
+        <GithubIcon />
+        Code
+      </a>
+      <a
+        href={linkPreview}
+        target={"_blank"}
+        role="link"
+        class={`${linkPreview == undefined ? "hidden" : "inline-flex"} ${linkClasses}`}
+      >
+        <EyeIcon />
+        Preview
+      </a>
+    </div>
+  </div>
+</div>
