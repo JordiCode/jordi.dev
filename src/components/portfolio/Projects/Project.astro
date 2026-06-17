@@ -1,29 +1,15 @@
 ---
-import EyeIcon from "../icons/EyeIcon.astro";
-import GithubIcon from "../icons/Stack/GithubIcon.astro";
 import LoadingIcon from "../icons/LoadingIcon.astro";
-
-const linkClasses =
-  "items-center justify-center gap-2 px-2 py-2 space-x-2 text-xs text-black dark:text-white dark:hover:text-black  transition hover:bg-blue-400   border-zinc-700 text-md  hover:border-gray-900 group max-w-fit rounded-md focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black";
-
-interface Props {
-  status: string;
-  srcImg: string;
-  title: string;
-  description: string;
-  linkPreview: string | undefined;
-  linkCode: string | undefined;
-  tools: string[];
-}
+import GithubIcon from "../icons/Stack/GithubIcon.astro";
 
 const statusColor: { [key: string]: string } = {
   production: "bg-green-700",
   building: "bg-yellow-700",
-  disabled: "bg-red-700",
+  disabled: "bg-red-500",
+  design: "bg-gray-700",
 };
 
-const { status, srcImg, title, description, linkPreview, linkCode } =
-  Astro.props;
+const { status, srcImg, title, description, link } = Astro.props;
 ---
 
 <div class="project">
@@ -53,25 +39,30 @@ const { status, srcImg, title, description, linkPreview, linkCode } =
       <p class="text-sm text-zinc-600 dark:text-zinc-300 mb-4">
         {description}
       </p>
-
-      <a
-        href={linkCode}
-        target={"_blank"}
-        role="link"
-        class={`${linkCode == undefined ? "hidden" : "inline-flex"} ${linkClasses}`}
-      >
-        <GithubIcon />
-        Code
-      </a>
-      <a
-        href={linkPreview}
-        target={"_blank"}
-        role="link"
-        class={`${linkPreview == undefined ? "hidden" : "inline-flex"} ${linkClasses}`}
-      >
-        <EyeIcon />
-        Preview
-      </a>
+      <div class="flex">
+        <a
+          href={link.view.href}
+          target={"_blank"}
+          role="link"
+          class={`flex items-center gap-2 hover:bg-blue-400 w-max rounded-md px-3 py-2 text-sm`}
+        >
+          <link.view.icon />
+          <span>{link.view.title}</span>
+        </a>
+        {
+          link.github && (
+            <a
+              href={link.github.href}
+              target={"_blank"}
+              role="link"
+              class={`flex items-center gap-2 hover:bg-blue-400 w-max rounded-md px-3 py-2 text-sm`}
+            >
+              <GithubIcon />
+              <span>Github</span>
+            </a>
+          )
+        }
+      </div>
     </div>
   </div>
 </div>

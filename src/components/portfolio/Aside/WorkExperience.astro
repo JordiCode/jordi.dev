@@ -42,14 +42,14 @@ const experiences = [
     {
       experiences.map(({ title, company, startDate, endDate, description }) => {
         return (
-          <div class="workExp-wrapper p-3 rounded-xl bg-blue-400">
+          <div class="workExp-wrapper p-3 rounded-xl bg-blue-300 dark:bg-blue-950">
             <p class="text-xs mb-2 text-slate-800 dark:text-slate-200">
               {startDate} - {endDate}
             </p>
-            <h3 class="text-xl font-bold text-slate-800 dark:text-slate-50">
+            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-50">
               {company}
             </h3>
-            <p class="dark:text-slate-900 text-white mb-2 text-sm font-medium">
+            <p class="dark:text-slate-400 text-black/55 mb-2 text-sm font-medium">
               {title}
             </p>
             <div class=" rounded-lg h-max">
