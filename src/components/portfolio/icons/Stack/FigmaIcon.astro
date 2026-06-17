@@ -3,11 +3,11 @@ interface Props {
   classes?: string;
 }
 
-const { classes = "size-6" } = Astro.props;
+const { classes = "size-5" } = Astro.props;
 ---
 
-<span title={"Figma"} class={classes}>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<span title={"Figma"}>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class={classes}>
     <path fill="#f4511e" d="M12 4h4v8h-4a4 4 0 0 1-4-4a4 4 0 0 1 4-4"></path>
     <path fill="#ff8a65" d="M20 12h-4V4h4a4 4 0 0 1 4 4a4 4 0 0 1-4 4"></path>
     <rect
