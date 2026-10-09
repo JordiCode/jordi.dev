@@ -48,19 +48,6 @@ const data: ProjectType[] = [
       view: {
         icon: EyeIcon,
         title: "Preview",
-        href: "https://www.aortegaconstruction.com"
-      },
-    },
-    srcImg: "/projects/project-a-ortega-construction.png",
-    title: "A Ortega Construction",
-    description: `Construction Company Landing Page. Through the site, their clients were able to learn about their services and get in touch with the company`,
-  },
-  {
-    status: "production",
-    link: {
-      view: {
-        icon: EyeIcon,
-        title: "Preview",
         href: "https://www.rocknrollblunts.com"
       },
     },
@@ -106,6 +93,19 @@ const data: ProjectType[] = [
         href: "https://wmalarmsystem-com-lake.vercel.app"
       }
     }
+  },
+  {
+    status: "disabled",
+    link: {
+      view: {
+        icon: EyeIcon,
+        title: "Preview",
+        href: "https://a-ortega-construction-7fbcjzl9f-gabrieljs-projects-2722e7d2.vercel.app"
+      },
+    },
+    srcImg: "/projects/project-a-ortega-construction.png",
+    title: "A Ortega Construction",
+    description: `Construction Company Landing Page. Through the site, their clients were able to learn about their services and get in touch with the company`,
   },
   {
     status: "disabled",
