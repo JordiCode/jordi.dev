@@ -85,7 +85,7 @@ const data: ProjectType[] = [
     status: "disabled",
     srcImg: "/projects/project-wm-alarm-systems.webp",
     title: "WM Alarm System",
-    description: "El WM Alarm System es una solución de seguridad avanzada de grado industrial diseñada para ofrecer protección híbrida y conectividad total",
+    description: "The WM Alarm System is an advanced, industrial-grade security solution designed to deliver hybrid protection and complete connectivity",
     link: {
       view: {
         icon: EyeIcon,
