@@ -1,0 +1,69 @@
+---
+const { classes } = Astro.props;
+
+import Card from "../ui/Card.astro";
+import DotsIcon from "../icons/DotsIcon.astro";
+
+const educations = [
+    {
+        title: "Path: Software Development",
+        company: "Cincinnatus Institute of Craftsmanship, Inc",
+        startDate: "2025",
+        endDate: "Present",
+        description: `At the Institute, I learned a variety of new things and gained hands-on experience 
+            working in a team on real projects, such as PTD-Carnet and PTD-Asistencia, which the 
+            Institute now uses in its ecosystem`,
+    },
+];
+---
+
+<Card classes={classes}>
+    <div class="flex gap-2 items-center mb-6">
+        <h2 class="text-black dark:text-white text-2xl mb-0!">Education</h2>
+    </div>
+    <div class="grid gap-3">
+        {
+            educations.map(
+                ({ title, company, startDate, endDate, description }) => {
+                    return (
+                        <div class="education-wrapper p-3 rounded-xl bg-blue-300 dark:bg-blue-950">
+                            <p class="text-xs mb-2 text-slate-800 dark:text-slate-200">
+                                {startDate} - {endDate}
+                            </p>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-50">
+                                {company}
+                            </h3>
+                            <p class="dark:text-slate-400 text-black/55 mb-2 text-sm font-medium">
+                                {title}
+                            </p>
+                            <div class=" rounded-lg h-max">
+                                <p class="education-description bg-background rounded-lg hidden text-xs leading-5 p-3">
+                                    {description}
+                                </p>
+                                <span class="education-button p-3 hover:bg-background flex w-full font-medium  gap-2 items-center justify-start cursor-pointer rounded-lg">
+                                    <DotsIcon classes="size-4 min-w-4" />
+                                    <p>Details</p>
+                                </span>
+                            </div>
+                        </div>
+                    );
+                },
+            )
+        }
+    </div>
+</Card>
+
+<script is:inline>
+    const educationExp = document.querySelectorAll(".education-wrapper");
+
+    educationExp.forEach((currentWe) => {
+        const educationExpButton = currentWe.querySelector(".education-button");
+        const educationExpDescription = currentWe.querySelector(
+            ".education-description",
+        );
+        educationExpButton.addEventListener("click", () => {
+            educationExpDescription.classList.remove("hidden");
+            educationExpButton.classList.add("hidden");
+        });
+    });
+</script>
