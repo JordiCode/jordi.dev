@@ -1,6 +1,7 @@
 import type { ProjectType } from "../types/projectType";
 import FigmaIcon from "../components/portfolio/icons/Stack/FigmaIcon.astro";
-import EyeIcon from "../components/portfolio/icons/EyeIcon.astro";
+import YouTubeIcon from "../components/portfolio/icons/YouTubeIcon.astro";
+import HttpIcon from "../components/portfolio/icons/HttpIcon.astro";
 
 const data: ProjectType[] = [
   {
@@ -29,6 +30,19 @@ const data: ProjectType[] = [
       },
     },
   },
+  /* {
+     title: "PTD Carnet And Asistencia (Cincinnatus Institute of Craftsmanship, Inc)",
+     status: "production",
+     srcImg: "/projects/project-ptd-asistencia.png",
+     description: `My team and I at Cincinnatus Institute of Craftsmanship, Inc. worked on these projects to create platforms that let coordinators manage student attendance more efficiently`,
+     link: {
+       view: {
+         icon: YouTubeIcon,
+         title: "Watch",
+         href: "https://www.figma.com/design/j6NhW3EjNLkiEPZ4Scqqmb/AppLanguages?node-id=0-1&t=rcTd4OLT7H4PB3C9-1"
+       },
+     },
+   },*/
   {
     title: "Salem Taxi LLC",
     status: "production",
@@ -36,7 +50,7 @@ const data: ProjectType[] = [
     description: `Taxi Services Company. Through the site, their clients were able to learn about their services and get in touch with the company`,
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://www.salem-taxi.com"
       },
@@ -46,7 +60,7 @@ const data: ProjectType[] = [
     status: "production",
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://www.rocknrollblunts.com"
       },
@@ -59,7 +73,7 @@ const data: ProjectType[] = [
     status: "production",
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://www.premezcladosdehormigonfjp.com"
       },
@@ -72,7 +86,7 @@ const data: ProjectType[] = [
     status: "production",
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://www.americabtaxisalem.com/"
       },
@@ -88,7 +102,7 @@ const data: ProjectType[] = [
     description: "The WM Alarm System is an advanced, industrial-grade security solution designed to deliver hybrid protection and complete connectivity",
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://wmalarmsystem-com-lake.vercel.app"
       }
@@ -98,7 +112,7 @@ const data: ProjectType[] = [
     status: "disabled",
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://a-ortega-construction-7fbcjzl9f-gabrieljs-projects-2722e7d2.vercel.app"
       },
@@ -111,7 +125,7 @@ const data: ProjectType[] = [
     status: "disabled",
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://lawrance-collision-center-inc-pi.vercel.app"
       },
@@ -141,7 +155,7 @@ const data: ProjectType[] = [
     description: `Check out my project for BancoSantiagoSA! Created this during my time at Cincinnatus Institute`,
     link: {
       view: {
-        icon: EyeIcon,
+        icon: HttpIcon,
         title: "Preview",
         href: "https://banco-santiago-sa.vercel.app"
       }
