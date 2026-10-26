@@ -59,6 +59,7 @@ const { classes, title, icon: Icon, items } = Astro.props;
   </div>
   <button
     class=`
+    ${items && items.length > 1 ? "" : "hidden"}
     expandable-item-button
     cursor-pointer w-full text-white px-3 py-2 rounded-xl bg-blue-400 dark:bg-blue-950 
      hover:bg-blue-500 dark:hover:bg-blue-900 transition-all flex items-center justify-center gap-2 `
