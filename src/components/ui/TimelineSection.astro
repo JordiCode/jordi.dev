@@ -1,0 +1,106 @@
+---
+import type { TimelineItemType } from "@/types/TimelineItemType";
+import Card from "./Card.astro";
+import ArrowUp from "@icons/ArrowUp.astro";
+import DotsIcon from "@icons/DotsIcon.astro";
+
+interface Props {
+  classes?: string;
+  title: string;
+  icon: any;
+  items: TimelineItemType[];
+}
+
+const { classes, title, icon: Icon, items } = Astro.props;
+---
+
+<Card classes={classes} data-timeline>
+  <div class="flex gap-2 items-center mb-6">
+    <Icon classes="size-6" />
+    <h2 class="text-black dark:text-white text-2xl mb-0!">{title}</h2>
+  </div>
+  <div class="grid gap-3 mb-2">
+    {
+      items.map(
+        ({ title, company, startDate, endDate, description }, index) => {
+          return (
+            <div
+              class:list={[
+                "item-wrapper p-3 rounded-xl bg-blue-300 dark:bg-blue-950",
+                { hidden: index !== 0 },
+              ]}
+            >
+              <p class="text-xs mb-2 text-slate-800 dark:text-slate-200">
+                {startDate} - {endDate}
+              </p>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-slate-50">
+                {company}
+              </h3>
+              <p class="dark:text-slate-400 text-black/55 mb-2 text-sm font-medium">
+                {title}
+              </p>
+              <div class="relative rounded-lg h-max">
+                <p class="item-description bg-background rounded-lg hidden text-xs leading-5 p-3">
+                  {description}
+                </p>
+                <span class="open-details p-3 hover:bg-background flex w-full font-medium  gap-2 items-center justify-start cursor-pointer rounded-lg">
+                  <DotsIcon classes="size-4 min-w-4" />
+                  <p>Details</p>
+                </span>
+                <div class="close-details text-white hidden text-center cursor-pointer w-6 h-6 rounded-full bg-red-500 hover:bg-red-600 absolute top-0 -translate-y-1/2 right-0 items-center justify-center">
+                  -
+                </div>
+              </div>
+            </div>
+          );
+        },
+      )
+    }
+  </div>
+  <button
+    class=`
+    expandable-item-button
+    cursor-pointer w-full text-white px-3 py-2 rounded-xl bg-blue-400 dark:bg-blue-950 
+     hover:bg-blue-500 dark:hover:bg-blue-900 transition-all flex items-center justify-center gap-2 `
+  >
+    <ArrowUp classes="size-6 rotate-180" />
+  </button>
+</Card>
+
+<script>
+  document
+    .querySelectorAll<HTMLElement>("[data-timeline]")
+    .forEach((timeline) => {
+      const items = timeline.querySelectorAll<HTMLElement>(".item-wrapper");
+      const expandButton = timeline.querySelector<HTMLElement>(
+        ".expandable-item-button",
+      );
+
+      expandButton?.addEventListener("click", () => {
+        expandButton.children[0]?.classList.toggle("rotate-180");
+
+        items.forEach((current, index) => {
+          if (index === 0) return;
+          current.classList.toggle("hidden");
+        });
+      });
+
+      items.forEach((current) => {
+        const itemDescription = current.querySelector(".item-description");
+        const openDetailsButton = current.querySelector(".open-details");
+        const closeDetailsButton = current.querySelector(".close-details");
+
+        openDetailsButton?.addEventListener("click", () => {
+          itemDescription?.classList.remove("hidden");
+          closeDetailsButton?.classList.remove("hidden");
+          openDetailsButton.classList.add("hidden");
+        });
+
+        closeDetailsButton?.addEventListener("click", () => {
+          itemDescription?.classList.add("hidden");
+          closeDetailsButton.classList.add("hidden");
+          openDetailsButton?.classList.remove("hidden");
+        });
+      });
+    });
+</script>
