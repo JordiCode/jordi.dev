@@ -1,13 +1,16 @@
 ---
-import Education from "@components/Aside/Education.astro";
+import { workExperiences } from "@data/workExperiences";
+import { educations } from "@data/educations";
+import TimelineSection from "@components/ui/TimelineSection.astro";
 import ProfileCard from "@components/Aside/ProfileCard.astro";
 import StackTech from "@components/Aside/StackTech.astro";
-import WorkExperience from "@components/Aside/WorkExperience.astro";
+import WorkIcon from "@icons/WorkIcon.astro";
+import BookIcon from "@icons/BookIcon.astro";
 ---
 
 <section class="md:max-w-[320px] flex flex-col flex-wrap gap-4 max-md:mx-auto">
   <ProfileCard />
-  <WorkExperience />
-  <Education />
+  <TimelineSection title="Work Experience" icon={WorkIcon}items={workExperiences} />
+  <TimelineSection title="Education" icon={BookIcon} items={educations} />
   <StackTech />
 </section>
