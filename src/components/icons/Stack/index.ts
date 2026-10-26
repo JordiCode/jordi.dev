@@ -1,0 +1,16 @@
+export { default as ReactIcon } from "./ReactIcon.astro";
+export { default as FigmaIcon } from "./FigmaIcon.astro";
+export { default as NodeJsIcon } from "./NodeJsIcon.astro";
+export { default as AstroIcon } from "./AstroIcon.astro";
+export { default as GitIcon } from "./GitIcon.astro";
+export { default as TailWindCssIcon } from "./TailWindCssIcon.astro";
+export { default as BunIcon } from "./BunIcon.astro";
+export { default as NpmIcon } from "./NpmIcon.astro";
+export { default as AWSIcon } from "./AWSIcon.astro";
+export { default as PostgreSqlIcon } from "./PostgreSqlIcon.astro";
+export { default as VercelIcon } from "./VercelIcon.astro";
+export { default as TypeScriptIcon } from "./TypeScriptIcon.astro";
+export { default as ReactNativeIcon } from "./ReactNativeIcon.astro";
+export { default as HtmlIcon } from "./HtmlIcon.astro";
+export { default as JavaScriptIcon } from "./JavaScriptIcon.astro";
+export { default as CssIcon } from "./CssIcon.astro";

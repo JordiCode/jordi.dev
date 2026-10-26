@@ -1,0 +1,30 @@
+---
+const { classes } = Astro.props;
+import { technologies } from "@data/technologies";
+import Card from "@components/ui/Card.astro";
+import StackIcon from "@icons/StackIcon.astro";
+---
+
+<div class={`sticky top-24  ${classes}`}>
+  <Card>
+    <div class="flex gap-2 items-center mb-6">
+      <StackIcon />
+      <h2 class="text-black dark:text-white text-2xl mb-0!">Stack</h2>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      {
+        technologies.map(({ Icon, text, size }) => {
+          return (
+            <div
+              class="group text-xs flex gap-1 items-center bg-blue-400/50 hover:bg-blue-200 dark:hover:bg-blue-400 rounded-xl px-2 py-1"
+              title={text}
+            >
+              <Icon classes={size} />
+              <p>{text}</p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </Card>
+</div>

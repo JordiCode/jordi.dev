@@ -1,9 +1,8 @@
 import type { ProjectType } from "../types/projectType";
-import FigmaIcon from "../components/portfolio/icons/Stack/FigmaIcon.astro";
-import YouTubeIcon from "../components/portfolio/icons/YouTubeIcon.astro";
-import HttpIcon from "../components/portfolio/icons/HttpIcon.astro";
+import FigmaIcon from "@components/icons/Stack/FigmaIcon.astro";
+import HttpIcon from "@components/icons/HttpIcon.astro";
 
-const data: ProjectType[] = [
+export const projects: ProjectType[] = [
   {
     title: "Archit (Productive App)",
     status: "building",
@@ -189,4 +188,3 @@ const data: ProjectType[] = [
   }
 ];
 
-export default data;
