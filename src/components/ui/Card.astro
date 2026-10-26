@@ -1,11 +1,12 @@
 ---
 interface Props {
   classes?: string;
+  [key: string]: any;
 }
 
-const { classes } = Astro.props;
+const { classes, ...rest } = Astro.props;
 ---
 
-<div class={`p-3 rounded-xl bg-background ${classes}`}>
+<div class={`p-3 rounded-xl bg-background ${classes}`} {...rest}>
   <slot />
 </div>
