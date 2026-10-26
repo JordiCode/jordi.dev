@@ -1,4 +1,6 @@
-export const workExperiences = [
+import type { TimelineItemType } from "@/types/TimelineItemType";
+
+export const workExperiences: TimelineItemType[] = [
     {
         title: "Frontend Developer",
         company: "Freelance",
