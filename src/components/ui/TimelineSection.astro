@@ -11,7 +11,7 @@ interface Props {
   items: TimelineItemType[];
 }
 
-const { classes, title, icon: Icon, items } = Astro.props;
+const { classes, title, icon: Icon, items }: Props = Astro.props;
 ---
 
 <Card classes={classes} data-timeline>
