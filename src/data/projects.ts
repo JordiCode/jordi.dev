@@ -1,4 +1,4 @@
-import type { ProjectType } from "../types/projectType";
+import type { ProjectType } from "@/types/projectType";
 import FigmaIcon from "@components/icons/Stack/FigmaIcon.astro";
 import HttpIcon from "@components/icons/HttpIcon.astro";
 

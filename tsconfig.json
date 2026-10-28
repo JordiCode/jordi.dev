@@ -17,9 +17,6 @@
       "@pages/*": [
         "./src/pages/*"
       ],
-      "@types/*": [
-        "./src/types/*"
-      ],
     },
     "jsx": "react-jsx",
   }
